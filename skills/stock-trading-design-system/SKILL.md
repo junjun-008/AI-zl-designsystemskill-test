@@ -51,6 +51,7 @@ Pick by task type:
 - component work: `components.md`
 - page work: `page-list.md`
 - layout sizing and measurements: `docs/layout-and-component-specs.md`
+- icon or logo usage: `assets/icon-index.json`
 - code or prototype variables: `tokens.json`, `design-tokens.css`, `component-variables.css`
 
 ### Layer 3: Extended References
@@ -78,8 +79,9 @@ Read only when needed:
    - neutral = muted text
 7. Always keep button, tab, list row, payment control, and navigation elements componentized.
 8. Always use local icon/logo components for business rows instead of pasted bitmap placeholders.
-9. Always use role-based typography names such as `Display`, `Headline`, `Title`, `Body`, `Label`.
-10. Always review new output against the Figma handbook pages before handoff.
+9. Always use `assets/icon-index.json` before choosing icons for navigation, actions, watchlist, portfolio, monitoring, trigger, market, payment, or logo slots.
+10. Always use role-based typography names such as `Display`, `Headline`, `Title`, `Body`, `Label`.
+11. Always review new output against the Figma handbook pages before handoff.
 
 ### Never
 
@@ -87,10 +89,11 @@ Read only when needed:
 2. Never use `H1 / H2 / body1 / body2` as the working naming system inside this project.
 3. Never detach core controls such as button, bottom navigation, segment tab, stock row, payment method item.
 4. Never replace stock logos with blank circles or random icons.
-5. Never add light-theme surfaces, marketing hero patterns, or decorative gradients into app screens.
-6. Never mix page-level spacing systems inside one screen.
-7. Never create new colors, shadows, radii, or typography sizes unless the current token system cannot express the need and the change is explicitly approved.
-8. Never describe a component with ad hoc property names when a Figma component API already exists in `tokens.json`.
+5. Never use a generic icon only because it looks visually similar; the icon must match the product meaning in `assets/icon-index.json`.
+6. Never add light-theme surfaces, marketing hero patterns, or decorative gradients into app screens.
+7. Never mix page-level spacing systems inside one screen.
+8. Never create new colors, shadows, radii, or typography sizes unless the current token system cannot express the need and the change is explicitly approved.
+9. Never describe a component with ad hoc property names when a Figma component API already exists in `tokens.json`.
 
 ## Task Routing
 
@@ -102,6 +105,7 @@ Read:
 - one file in `page-shells/`
 - one file in `product-lines/`
 - `docs/layout-and-component-specs.md`
+- `assets/icon-index.json` when the page contains navigation icons, toolbar icons, stock logos, monitoring states, trigger states, payment icons, or other icon-only actions
 
 ### If the task is component generation or component review
 
@@ -110,6 +114,7 @@ Read:
 - `components.md`
 - `tokens.json`
 - `docs/layout-and-component-specs.md`
+- `assets/icon-index.json` when the component has icon, logo, leading icon, trailing icon, method icon, or instance-swap slots
 - relevant case study in `case-studies/`
 
 ### If the task is prototype or implementation output
@@ -120,6 +125,7 @@ Read:
 - `design-tokens.css`
 - `component-variables.css`
 - `components.md`
+- `assets/icon-index.json`
 
 ### If the task is onboarding, team sync, or collaboration governance
 
@@ -161,6 +167,7 @@ The output should satisfy all of the following:
 - `components.md`: component rules and APIs
 - `page-list.md`: page rules and module composition
 - `docs/layout-and-component-specs.md`: detailed measurement specs
+- `assets/icon-index.json`: semantic icon/logo usage map with Chinese meanings, business categories, preferred usage, and fallback rules
 - `case-studies/`: real failure patterns and review examples
 
 ## Self Check

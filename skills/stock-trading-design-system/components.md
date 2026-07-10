@@ -7,8 +7,9 @@ This file defines which components are approved, how they should be used, and wh
 1. Reuse the existing component before drawing a new frame.
 2. Preserve component property names from `tokens.json`.
 3. Use local icon or logo instances for instance-swap slots.
-4. Add states before adding new visual styles.
-5. Treat section components as reusable patterns, not one-off layouts.
+4. Check `assets/icon-index.json` before selecting an icon for navigation, action, monitoring, trigger, stock logo, or payment slots.
+5. Add states before adding new visual styles.
+6. Treat section components as reusable patterns, not one-off layouts.
 
 ## Foundations For All Components
 
@@ -68,6 +69,7 @@ This file defines which components are approved, how they should be used, and wh
 - purpose: compact utility action
 - states: `Default`, `Pressed`, `Focus`, `Disabled`
 - rule: use for icon-only actions, not for primary page CTA
+- icon rule: icon meaning must come from `assets/icon-index.json`; do not choose an icon only because the shape looks similar
 
 ### Text Button
 

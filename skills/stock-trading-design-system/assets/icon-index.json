@@ -1,0 +1,365 @@
+{
+  "version": "0.1.0",
+  "purpose": "Semantic icon and logo usage index for the stock trading design system. This file records which icon meaning should be used in each product context; it does not replace final Figma icon assets.",
+  "languageNote": "zhName and zhMeaning are included so PMs and designers can review icon semantics without relying on English only.",
+  "sourcePriority": [
+    "Use the exact icon or logo instance from the current Figma page when available.",
+    "Use an existing local icon or logo component listed in tokens.json.",
+    "Use the approved semantic fallback in this file and mark it as pending production icon replacement when needed."
+  ],
+  "globalRules": [
+    "Do not use random decorative icons for product functions.",
+    "Do not replace stock logos with blank circles or unrelated symbols.",
+    "Do not use emoji as product icons.",
+    "Keep icon-only actions at a minimum 40px touch target.",
+    "Use 16px icons for dense metadata, 20px icons for toolbar actions, and 24px icons for primary navigation or standalone icon buttons.",
+    "When an icon represents a financial movement, positive uses green, negative uses red, and neutral uses muted text or icon color.",
+    "If the real Figma icon is unavailable, use one consistent fallback style within the same prototype or page."
+  ],
+  "sizeTokens": {
+    "sm": "16px",
+    "md": "20px",
+    "lg": "24px",
+    "touchTarget": "40px"
+  },
+  "categories": [
+    {
+      "id": "navigation",
+      "zhName": "导航",
+      "description": "Top app bar, bottom navigation, page switching and back navigation."
+    },
+    {
+      "id": "actions",
+      "zhName": "通用操作",
+      "description": "Add, settings, search, copy, filter and common utility actions."
+    },
+    {
+      "id": "watchlist",
+      "zhName": "自选",
+      "description": "Watchlist grouping, sorting, row tools and add-to-watchlist actions."
+    },
+    {
+      "id": "portfolio",
+      "zhName": "持仓",
+      "description": "Portfolio, position, wallet, buying power and account-state actions."
+    },
+    {
+      "id": "monitoring",
+      "zhName": "盯盘",
+      "description": "Watch alerts, monitoring rules, triggers, reminders and rule states."
+    },
+    {
+      "id": "market",
+      "zhName": "行情",
+      "description": "Market movement, trend, quote list and stock market metadata."
+    },
+    {
+      "id": "logos",
+      "zhName": "股票与机构标识",
+      "description": "Stock logos, bank logos and market-specific logo slots."
+    }
+  ],
+  "icons": [
+    {
+      "id": "nav-back",
+      "sourceName": "Arrow Left",
+      "zhName": "返回",
+      "category": "navigation",
+      "zhMeaning": "返回上一级页面",
+      "recommendedUse": ["top app bar leading icon", "detail page back action", "flow step back action"],
+      "avoidUse": ["do not use for collapse", "do not use for market down movement"],
+      "preferredSize": "24px",
+      "preferredTone": "default",
+      "fallback": "left arrow line icon"
+    },
+    {
+      "id": "nav-menu",
+      "sourceName": "Menu",
+      "zhName": "菜单",
+      "category": "navigation",
+      "zhMeaning": "打开页面菜单或更多导航",
+      "recommendedUse": ["top navigation", "watchlist page menu"],
+      "avoidUse": ["do not use for row more action when a three-dot icon exists"],
+      "preferredSize": "24px",
+      "preferredTone": "default",
+      "fallback": "three horizontal lines"
+    },
+    {
+      "id": "bottom-nav-market",
+      "sourceName": "Market",
+      "zhName": "大盘",
+      "category": "navigation",
+      "zhMeaning": "进入大盘或行情总览",
+      "recommendedUse": ["bottom navigation market tab"],
+      "avoidUse": ["do not use for single stock detail"],
+      "preferredSize": "24px",
+      "preferredTone": "selected or muted",
+      "fallback": "rounded square with small chart mark"
+    },
+    {
+      "id": "bottom-nav-watchlist",
+      "sourceName": "Activity",
+      "zhName": "自选",
+      "category": "navigation",
+      "zhMeaning": "进入用户自选股票列表",
+      "recommendedUse": ["bottom navigation watchlist tab"],
+      "avoidUse": ["do not use for portfolio holdings"],
+      "preferredSize": "24px",
+      "preferredTone": "selected or muted",
+      "fallback": "rounded square with centered dot or list mark"
+    },
+    {
+      "id": "bottom-nav-opportunity",
+      "sourceName": "Trending Up",
+      "zhName": "机会",
+      "category": "navigation",
+      "zhMeaning": "进入机会发现、行情扫描或趋势发现",
+      "recommendedUse": ["bottom navigation opportunity tab", "market discovery entry"],
+      "avoidUse": ["do not use for confirmed profit"],
+      "preferredSize": "24px",
+      "preferredTone": "selected or muted",
+      "fallback": "trend line mark"
+    },
+    {
+      "id": "bottom-nav-trade",
+      "sourceName": "Wallet",
+      "zhName": "交易",
+      "category": "navigation",
+      "zhMeaning": "进入交易、资产或账户相关入口",
+      "recommendedUse": ["bottom navigation trade tab"],
+      "avoidUse": ["do not use for watchlist monitoring"],
+      "preferredSize": "24px",
+      "preferredTone": "selected or muted",
+      "fallback": "wallet outline mark"
+    },
+    {
+      "id": "settings",
+      "sourceName": "Settings",
+      "zhName": "设置",
+      "category": "actions",
+      "zhMeaning": "设置页面、设置分组或设置当前模块",
+      "recommendedUse": ["page toolbar", "watchlist filter row", "monitoring rule settings"],
+      "avoidUse": ["do not use as monitoring alert icon"],
+      "preferredSize": "20px",
+      "preferredTone": "default",
+      "fallback": "slider control icon"
+    },
+    {
+      "id": "add",
+      "sourceName": "Plus",
+      "zhName": "添加",
+      "category": "actions",
+      "zhMeaning": "添加新项目",
+      "recommendedUse": ["add watchlist", "add monitoring rule", "empty state action"],
+      "avoidUse": ["do not use for positive stock movement"],
+      "preferredSize": "20px",
+      "preferredTone": "accent",
+      "fallback": "plus sign"
+    },
+    {
+      "id": "copy",
+      "sourceName": "Copy",
+      "zhName": "复制",
+      "category": "actions",
+      "zhMeaning": "复制文本、账号或链接",
+      "recommendedUse": ["funding flow", "account number copy", "shareable rule copy"],
+      "avoidUse": ["do not use for duplicate monitoring rule unless copy behavior is explicit"],
+      "preferredSize": "20px",
+      "preferredTone": "default",
+      "fallback": "overlapping square icon"
+    },
+    {
+      "id": "filter-dropdown",
+      "sourceName": "Chevron Down",
+      "zhName": "下拉筛选",
+      "category": "actions",
+      "zhMeaning": "展开筛选、分组或时间范围",
+      "recommendedUse": ["filter select", "group selector", "time range selector"],
+      "avoidUse": ["do not use for page back"],
+      "preferredSize": "16px",
+      "preferredTone": "muted",
+      "fallback": "down chevron"
+    },
+    {
+      "id": "watchlist-add",
+      "sourceName": "Plus",
+      "zhName": "加自选",
+      "category": "watchlist",
+      "zhMeaning": "把股票加入自选列表",
+      "recommendedUse": ["watchlist summary row", "stock detail add-to-watchlist", "empty watchlist state"],
+      "avoidUse": ["do not use for add monitoring if the copy says 盯盘"],
+      "preferredSize": "20px",
+      "preferredTone": "accent",
+      "fallback": "plus in thin circle"
+    },
+    {
+      "id": "watchlist-group",
+      "sourceName": "Filter Select",
+      "zhName": "自选分组",
+      "category": "watchlist",
+      "zhMeaning": "切换或管理自选分组",
+      "recommendedUse": ["watchlist group chips", "group selector"],
+      "avoidUse": ["do not use for stock market tag"],
+      "preferredSize": "16px",
+      "preferredTone": "muted",
+      "fallback": "text chip without icon"
+    },
+    {
+      "id": "watchlist-sort",
+      "sourceName": "Chevron Down",
+      "zhName": "排序",
+      "category": "watchlist",
+      "zhMeaning": "切换列表排序方式",
+      "recommendedUse": ["stock list table header", "latest sort", "change percent sort"],
+      "avoidUse": ["do not use for trend direction"],
+      "preferredSize": "16px",
+      "preferredTone": "muted",
+      "fallback": "small up-down sort mark"
+    },
+    {
+      "id": "position",
+      "sourceName": "Wallet",
+      "zhName": "持仓",
+      "category": "portfolio",
+      "zhMeaning": "表示用户已经持有该股票或进入持仓分析",
+      "recommendedUse": ["position tab", "stock row holding tag", "portfolio summary"],
+      "avoidUse": ["do not use for trade execution"],
+      "preferredSize": "20px",
+      "preferredTone": "default",
+      "fallback": "wallet or briefcase outline"
+    },
+    {
+      "id": "buying-power",
+      "sourceName": "Deposit",
+      "zhName": "可用资金",
+      "category": "portfolio",
+      "zhMeaning": "表示入金、可用资金或购买力",
+      "recommendedUse": ["buying power", "top up entry", "portfolio quick action"],
+      "avoidUse": ["do not use for stock price movement"],
+      "preferredSize": "20px",
+      "preferredTone": "default",
+      "fallback": "down arrow into wallet"
+    },
+    {
+      "id": "monitoring",
+      "sourceName": "Message",
+      "zhName": "盯盘",
+      "category": "monitoring",
+      "zhMeaning": "表示用户正在盯盘、管理盯盘规则或进入盯盘页签",
+      "recommendedUse": ["monitoring tab", "set monitoring action", "monitoring rule list"],
+      "avoidUse": ["do not use as generic message icon when the context is not alert-related"],
+      "preferredSize": "20px",
+      "preferredTone": "accent",
+      "fallback": "bell, radar, or alert-outline icon"
+    },
+    {
+      "id": "alert-triggered",
+      "sourceName": "Message",
+      "zhName": "已触发",
+      "category": "monitoring",
+      "zhMeaning": "表示盯盘条件已经触发",
+      "recommendedUse": ["trigger tab badge", "stock row trigger tag", "trigger detail card"],
+      "avoidUse": ["do not use for unread marketing message"],
+      "preferredSize": "16px",
+      "preferredTone": "negative or accent",
+      "fallback": "small dot alert or outlined exclamation"
+    },
+    {
+      "id": "rule-active",
+      "sourceName": "Radio Selected",
+      "zhName": "规则生效",
+      "category": "monitoring",
+      "zhMeaning": "表示盯盘规则正在生效",
+      "recommendedUse": ["monitoring rule status", "rule detail selected state"],
+      "avoidUse": ["do not use for bottom navigation selected if a nav icon exists"],
+      "preferredSize": "16px",
+      "preferredTone": "positive",
+      "fallback": "green status dot"
+    },
+    {
+      "id": "rule-paused",
+      "sourceName": "Radio Unselected",
+      "zhName": "规则暂停",
+      "category": "monitoring",
+      "zhMeaning": "表示盯盘规则暂时停止",
+      "recommendedUse": ["monitoring rule status", "paused rule row"],
+      "avoidUse": ["do not use for disabled button if state styling is enough"],
+      "preferredSize": "16px",
+      "preferredTone": "muted",
+      "fallback": "muted status dot"
+    },
+    {
+      "id": "trend-up",
+      "sourceName": "Trending Up",
+      "zhName": "上涨趋势",
+      "category": "market",
+      "zhMeaning": "表示走势向上或行情热度上升",
+      "recommendedUse": ["market discovery", "trend card", "positive trend indicator"],
+      "avoidUse": ["do not use for guaranteed profit"],
+      "preferredSize": "20px",
+      "preferredTone": "positive",
+      "fallback": "upward line chart"
+    },
+    {
+      "id": "market-message",
+      "sourceName": "Message",
+      "zhName": "消息",
+      "category": "market",
+      "zhMeaning": "表示公告、新闻、研报或事件消息",
+      "recommendedUse": ["message monitoring", "stock news tag", "event trigger"],
+      "avoidUse": ["do not use for chat assistant unless the page is conversation-based"],
+      "preferredSize": "20px",
+      "preferredTone": "default",
+      "fallback": "message bubble outline"
+    },
+    {
+      "id": "bank",
+      "sourceName": "Bank",
+      "zhName": "银行",
+      "category": "logos",
+      "zhMeaning": "表示银行或支付渠道",
+      "recommendedUse": ["payment method item", "top up flow"],
+      "avoidUse": ["do not use for stock issuer logo"],
+      "preferredSize": "24px",
+      "preferredTone": "default",
+      "fallback": "bank building outline"
+    },
+    {
+      "id": "stock-logo",
+      "sourceName": "Local Stock Logo",
+      "zhName": "股票标识",
+      "category": "logos",
+      "zhMeaning": "表示具体股票或公司",
+      "recommendedUse": ["Stock List Item Logo slot", "Market Trend Card Logo slot", "Detail Saham header"],
+      "avoidUse": ["do not replace with blank circle", "do not use unrelated generic icon"],
+      "preferredSize": "24px",
+      "preferredTone": "original",
+      "fallback": "ticker text monogram only when the source logo is unavailable and explicitly marked as pending"
+    }
+  ],
+  "stockLogoWhitelist": [
+    "BRRI",
+    "ARB",
+    "FSX",
+    "DHDI",
+    "AMRI",
+    "ODD",
+    "PYQ",
+    "DAN",
+    "ROTI",
+    "GOTO",
+    "ABNB",
+    "UNVR",
+    "BBRI",
+    "ADRO",
+    "BUKA",
+    "SIDO"
+  ],
+  "reviewChecklist": [
+    "Does every icon-only action have a clear semantic reason?",
+    "Does the icon match the product function instead of only matching a visual shape?",
+    "Are monitoring, trigger, watchlist, portfolio, and trade meanings separated?",
+    "Are stock logos preserved as local logo components?",
+    "If a fallback icon is used, is it consistent and marked as pending final asset replacement?"
+  ]
+}

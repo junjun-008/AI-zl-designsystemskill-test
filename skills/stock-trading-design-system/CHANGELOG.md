@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026.07.10
+
+### Added
+
+- added `assets/icon-index.json` as the first semantic icon/logo usage index
+- covered navigation, actions, watchlist, portfolio, monitoring, trigger, market, payment, and stock logo scenarios
+- added Chinese names and meanings for icon review
+
+### Changed
+
+- updated `SKILL.md` routing so icon/logo-related work loads `assets/icon-index.json`
+- strengthened rules against generic or visually similar but semantically wrong icons
+
 ## 2026.05.18
 
 ### Added
