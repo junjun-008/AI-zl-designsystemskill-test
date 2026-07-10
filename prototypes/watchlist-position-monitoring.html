@@ -1,0 +1,1236 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>自选页持仓分析与智能盯盘</title>
+  <style>
+    :root {
+      --prototype-width: 390px;
+      --prototype-height: 844px;
+      --bottom-nav-height: 158px;
+      --color-bg-page: #F3F5F9;
+      --color-surface-card: #F7FBFF;
+      --color-surface-subtle: #E1EDFF;
+      --color-surface-selected: #E1EDFF;
+      --color-surface-navigation: #F7FBFF;
+      --color-bg-blue-overlay: #E1EDFF;
+      --color-text-primary: #030303;
+      --color-text-body: #353739;
+      --color-text-secondary: #6D778B;
+      --color-text-disabled: #9FABC4;
+      --color-text-active: #105EFF;
+      --color-accent-blue: #105EFF;
+      --color-accent-dark-blue: #2D3A67;
+      --color-accent-orange: #F36C29;
+      --color-finance-rise: #F62F3F;
+      --color-finance-fall: #00AB61;
+      --color-border-subtle: #FFFFFF;
+      --font-size-caption: 11px;
+      --font-size-meta: 12px;
+      --font-size-tab: 13px;
+      --font-size-body: 14px;
+      --font-size-number: 18px;
+      --font-size-title: 22px;
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-card: 12px;
+      --radius-pill: 999px;
+      --shadow-card: 0 4px 18px rgb(37 118 255 / 8%);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      background: #E8EDF5;
+      color: var(--color-text-primary);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      display: grid;
+      place-items: start center;
+      padding: 24px 0;
+    }
+    button {
+      border: 0;
+      font: inherit;
+      color: inherit;
+      background: none;
+      padding: 0;
+      cursor: pointer;
+    }
+    .phone {
+      width: var(--prototype-width);
+      height: var(--prototype-height);
+      overflow: hidden;
+      position: relative;
+      background:
+        radial-gradient(circle at 8% 4%, rgb(225 237 255 / 90%), transparent 34%),
+        linear-gradient(180deg, #EEF5FF 0%, var(--color-bg-page) 28%, #F6F8FC 100%);
+      border-radius: 30px;
+      box-shadow: 0 18px 48px rgb(45 58 103 / 18%);
+    }
+    .status {
+      height: 44px;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-accent-dark-blue);
+    }
+    .dynamic-island {
+      position: absolute;
+      top: 14px;
+      left: 143px;
+      width: 104px;
+      height: 28px;
+      border-radius: 18px;
+      background: #030303;
+    }
+    .signal {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .battery {
+      width: 25px;
+      height: 12px;
+      border: 1.5px solid currentColor;
+      border-radius: 4px;
+      position: relative;
+    }
+    .battery::before {
+      content: "";
+      position: absolute;
+      right: 3px;
+      top: 2px;
+      width: 14px;
+      height: 6px;
+      border-radius: 2px;
+      background: currentColor;
+    }
+    .battery::after {
+      content: "";
+      position: absolute;
+      right: -4px;
+      top: 3px;
+      width: 2px;
+      height: 5px;
+      border-radius: 2px;
+      background: currentColor;
+    }
+    .topbar {
+      height: 60px;
+      display: flex;
+      align-items: flex-start;
+      padding: 8px 12px 0;
+      gap: 10px;
+    }
+    .menu-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      box-shadow: var(--shadow-card);
+      display: grid;
+      place-items: center;
+      color: var(--color-accent-dark-blue);
+      flex: 0 0 auto;
+    }
+    .menu-lines,
+    .menu-lines::before,
+    .menu-lines::after {
+      width: 14px;
+      height: 2px;
+      border-radius: 2px;
+      background: currentColor;
+      display: block;
+      content: "";
+    }
+    .menu-lines::before { transform: translateY(-5px); }
+    .menu-lines::after { transform: translateY(3px); }
+    .main-tabs {
+      width: 188px;
+      height: 36px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding-top: 1px;
+      flex: 1 0 auto;
+    }
+    .main-tab {
+      height: 34px;
+      color: var(--color-text-secondary);
+      font-size: 16px;
+      position: relative;
+      white-space: nowrap;
+    }
+    .main-tab.active {
+      color: var(--color-accent-dark-blue);
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 31px;
+    }
+    .main-tab.active::after {
+      content: "";
+      position: absolute;
+      left: 12px;
+      bottom: -2px;
+      width: 18px;
+      height: 4px;
+      border-radius: 5px;
+      background: var(--color-finance-rise);
+    }
+    .main-tab.has-alert::before {
+      content: "";
+      position: absolute;
+      right: -5px;
+      top: 3px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-finance-rise);
+    }
+    .today-profit {
+      width: 91px;
+      height: 38px;
+      margin-left: auto;
+      border-radius: 20px;
+      background: #FFFFFF;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 9px;
+      color: var(--color-accent-dark-blue);
+    }
+    .wallet {
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid var(--color-accent-dark-blue);
+      border-radius: 5px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+    .wallet::after {
+      content: "";
+      position: absolute;
+      right: 2px;
+      top: 5px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--color-accent-blue);
+    }
+    .profit-label {
+      color: var(--color-text-secondary);
+      font-size: 11px;
+      line-height: 15px;
+      white-space: nowrap;
+    }
+    .profit-value {
+      color: var(--color-finance-rise);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 15px;
+    }
+    .sheet {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 104px;
+      bottom: 19px;
+      overflow: hidden;
+      border-radius: 20px 20px 0 0;
+      background: linear-gradient(180deg, #F7FBFF 0%, #EFF5FF 100%);
+      border: 1px solid rgb(255 255 255 / 80%);
+      box-shadow: 0 -8px 26px rgb(45 58 103 / 8%);
+    }
+    .group-filter {
+      height: 43px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 12px 0;
+      position: relative;
+    }
+    .group-scroll {
+      display: flex;
+      gap: 10px;
+      width: 307px;
+      overflow: hidden;
+    }
+    .chip {
+      height: 26px;
+      padding: 3px 10px;
+      border-radius: 60px;
+      color: var(--color-text-secondary);
+      background: rgb(16 94 255 / 7%);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .chip.active {
+      color: var(--color-accent-blue);
+      background: #FFFFFF;
+      border: 1px solid rgb(16 94 255 / 12%);
+      box-shadow: var(--shadow-card);
+      position: relative;
+    }
+    .chip.active::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 3px;
+      width: 28px;
+      height: 8px;
+      transform: translateX(-50%);
+      border-radius: 8px;
+      background: linear-gradient(90deg, rgb(16 94 255 / 18%), rgb(246 47 63 / 14%));
+      filter: blur(3px);
+    }
+    .setting {
+      margin-left: auto;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--color-accent-dark-blue);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .setting-icon {
+      width: 19px;
+      height: 19px;
+      position: relative;
+    }
+    .setting-icon::before,
+    .setting-icon::after {
+      content: "";
+      position: absolute;
+      left: 3px;
+      right: 3px;
+      height: 2px;
+      border-radius: 2px;
+      background: currentColor;
+    }
+    .setting-icon::before { top: 6px; }
+    .setting-icon::after { top: 12px; }
+    .summary-line {
+      height: 30px;
+      padding: 11px 18px 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 13px;
+    }
+    .summary-pair {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--color-text-secondary);
+      white-space: nowrap;
+    }
+    .summary-pair strong {
+      color: var(--color-finance-rise);
+      font-weight: 700;
+    }
+    .add-watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--color-accent-blue);
+      white-space: nowrap;
+    }
+    .add-watch::before {
+      content: "+";
+      width: 16px;
+      height: 16px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid currentColor;
+      font-size: 13px;
+      line-height: 16px;
+    }
+    .position-summary {
+      margin: 8px 18px 0;
+      border-radius: 10px;
+      background: #FFFFFF;
+      box-shadow: var(--shadow-card);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      align-items: center;
+      min-height: 54px;
+      padding: 9px 0;
+      overflow: hidden;
+    }
+    .summary-cell {
+      min-width: 0;
+      padding: 0 7px;
+      border-right: 1px solid #E8EEF7;
+    }
+    .summary-cell:last-child { border-right: 0; }
+    .summary-cell .label {
+      display: block;
+      color: var(--color-text-secondary);
+      font-size: 11px;
+      line-height: 16px;
+      white-space: nowrap;
+    }
+    .summary-cell .value {
+      display: block;
+      margin-top: 2px;
+      color: var(--color-text-primary);
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 18px;
+      white-space: nowrap;
+    }
+    .summary-cell .value.rise { color: var(--color-finance-rise); }
+    .summary-cell .value.warn { color: var(--color-accent-orange); }
+    .table-tools {
+      height: 24px;
+      padding: 10px 18px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--color-text-secondary);
+      font-size: 12px;
+    }
+    .tool-icons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--color-text-secondary);
+    }
+    .tool-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      background: currentColor;
+      opacity: .65;
+    }
+    .sort-head {
+      display: flex;
+      align-items: center;
+      gap: 42px;
+      padding-right: 2px;
+      color: var(--color-text-secondary);
+    }
+    .list-area {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 193px;
+      bottom: 0;
+      overflow: auto;
+      padding-bottom: 154px;
+      scrollbar-width: none;
+    }
+    .list-area::-webkit-scrollbar { display: none; }
+    .stock-row {
+      min-height: 72px;
+      border-bottom: .5px solid rgb(109 119 139 / 16%);
+      display: grid;
+      grid-template-columns: 124px 66px 62px 62px 24px;
+      column-gap: 0;
+      align-items: center;
+      padding: 8px 14px 8px 18px;
+      background: transparent;
+      text-align: left;
+    }
+    .stock-row.expanded { min-height: 88px; align-items: start; padding-top: 10px; }
+    .stock-main {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .stock-name {
+      color: var(--color-text-primary);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 22px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .stock-code {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      color: var(--color-text-secondary);
+      font-size: 12px;
+      line-height: 16px;
+      white-space: nowrap;
+    }
+    .mini-market {
+      min-width: 15px;
+      height: 15px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 2px;
+      border: .5px solid rgb(16 94 255 / 24%);
+      color: var(--color-accent-blue);
+      font-size: 10px;
+      line-height: 15px;
+    }
+    .spark {
+      width: 62px;
+      height: 40px;
+      justify-self: end;
+      position: relative;
+      opacity: .94;
+    }
+    .spark svg { width: 62px; height: 40px; display: block; }
+    .num {
+      text-align: right;
+      font-size: 16px;
+      font-family: "DIN Alternate", "Arial Narrow", Arial, sans-serif;
+      font-weight: 700;
+      line-height: 22px;
+      white-space: nowrap;
+    }
+    .rise { color: var(--color-finance-rise); }
+    .fall { color: var(--color-finance-fall); }
+    .more {
+      justify-self: end;
+      width: 24px;
+      height: 28px;
+      border-radius: 14px;
+      color: var(--color-text-secondary);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+    .tag-line {
+      grid-column: 1 / 6;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 5px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .tag {
+      height: 18px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 3px;
+      padding: 1px 5px;
+      font-size: 12px;
+      line-height: 16px;
+      color: var(--color-text-body);
+      background: rgb(246 47 63 / 5%);
+    }
+    .tag.position {
+      color: var(--color-accent-blue);
+      background: rgb(16 94 255 / 10%);
+    }
+    .tag.monitor {
+      color: var(--color-accent-orange);
+      background: rgb(243 108 41 / 10%);
+    }
+    .tag.trigger {
+      color: var(--color-finance-rise);
+      background: rgb(246 47 63 / 10%);
+      position: relative;
+      padding-left: 13px;
+    }
+    .tag.trigger::before {
+      content: "";
+      position: absolute;
+      left: 5px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--color-finance-rise);
+    }
+    .panel {
+      display: none;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 16px;
+      bottom: 0;
+      overflow: auto;
+      padding: 0 18px 164px;
+      scrollbar-width: none;
+    }
+    .panel::-webkit-scrollbar { display: none; }
+    .panel.active { display: block; }
+    .info-card {
+      background: #FFFFFF;
+      border-radius: 12px;
+      box-shadow: var(--shadow-card);
+      padding: 14px;
+      margin-bottom: 10px;
+    }
+    .card-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--color-text-primary);
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .card-link {
+      color: var(--color-accent-blue);
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    .metric {
+      min-height: 56px;
+      border-radius: 8px;
+      background: #F3F7FF;
+      padding: 8px;
+    }
+    .metric-label {
+      color: var(--color-text-secondary);
+      font-size: 11px;
+      line-height: 16px;
+    }
+    .metric-value {
+      margin-top: 3px;
+      color: var(--color-text-primary);
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 22px;
+    }
+    .risk-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .risk-bar {
+      flex: 1;
+      height: 6px;
+      border-radius: 6px;
+      background: #E7EDF8;
+      overflow: hidden;
+    }
+    .risk-fill {
+      height: 100%;
+      width: 72%;
+      border-radius: 6px;
+      background: linear-gradient(90deg, var(--color-accent-blue), var(--color-accent-orange));
+    }
+    .dense-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 0;
+      border-bottom: .5px solid #E8EEF7;
+      gap: 10px;
+    }
+    .dense-row:last-child { border-bottom: 0; }
+    .dense-main { min-width: 0; }
+    .dense-title {
+      color: var(--color-text-primary);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 20px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .dense-desc {
+      color: var(--color-text-secondary);
+      font-size: 12px;
+      line-height: 17px;
+      margin-top: 2px;
+    }
+    .mini-btn {
+      flex: 0 0 auto;
+      min-width: 56px;
+      height: 26px;
+      padding: 0 9px;
+      border-radius: 14px;
+      color: var(--color-accent-blue);
+      background: rgb(16 94 255 / 9%);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .trigger-item {
+      background: #FFFFFF;
+      border-radius: 12px;
+      box-shadow: var(--shadow-card);
+      padding: 13px 14px;
+      margin-bottom: 10px;
+    }
+    .trigger-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 7px;
+    }
+    .trigger-name {
+      color: var(--color-text-primary);
+      font-size: 15px;
+      font-weight: 800;
+    }
+    .trigger-type {
+      color: var(--color-finance-rise);
+      background: rgb(246 47 63 / 9%);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+    .trigger-copy {
+      color: var(--color-text-secondary);
+      font-size: 12px;
+      line-height: 18px;
+    }
+    .trigger-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .trigger-actions button {
+      height: 28px;
+      border-radius: 14px;
+      padding: 0 10px;
+      font-size: 12px;
+      color: var(--color-accent-blue);
+      background: rgb(16 94 255 / 8%);
+    }
+    .simulation-card {
+      background: #FFFFFF;
+      border-radius: 12px;
+      box-shadow: var(--shadow-card);
+      padding: 16px 14px;
+      margin-bottom: 10px;
+    }
+    .simulation-title {
+      color: var(--color-text-primary);
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 24px;
+    }
+    .simulation-copy {
+      margin-top: 6px;
+      color: var(--color-text-secondary);
+      font-size: 12px;
+      line-height: 18px;
+    }
+    .bottom-nav {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 39px;
+      height: 80px;
+      border-radius: 40px;
+      background: rgb(247 251 255 / 94%);
+      box-shadow: 0 10px 30px rgb(45 58 103 / 16%);
+      border: 1px solid rgb(255 255 255 / 88%);
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      padding: 10px 8px 8px;
+      z-index: 5;
+    }
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      color: var(--color-text-secondary);
+      font-size: 11px;
+    }
+    .nav-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 8px;
+      background: currentColor;
+      opacity: .36;
+    }
+    .nav-item.active {
+      color: var(--color-accent-blue);
+      font-weight: 700;
+    }
+    .nav-item.active .nav-icon { opacity: 1; }
+    .advisor {
+      position: absolute;
+      right: 14px;
+      bottom: 48px;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #FFFFFF, #DCE8FF);
+      box-shadow: 0 0 0 4px rgb(16 94 255 / 8%), 0 10px 20px rgb(16 94 255 / 18%);
+      z-index: 6;
+      display: grid;
+      place-items: center;
+      color: var(--color-accent-blue);
+      font-size: 11px;
+      font-weight: 800;
+      text-align: center;
+      line-height: 13px;
+    }
+    .disclaimer {
+      position: absolute;
+      bottom: 17px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: var(--color-text-disabled);
+      font-size: 10px;
+      z-index: 6;
+    }
+    .home-indicator {
+      position: absolute;
+      left: 129px;
+      bottom: 7px;
+      width: 132px;
+      height: 5px;
+      border-radius: 5px;
+      background: var(--color-text-primary);
+      opacity: .9;
+      z-index: 8;
+    }
+    .mask {
+      position: absolute;
+      inset: 0;
+      display: none;
+      align-items: flex-end;
+      background: rgb(3 3 3 / 24%);
+      z-index: 20;
+    }
+    .mask.show { display: flex; }
+    .drawer {
+      width: 100%;
+      border-radius: 18px 18px 0 0;
+      background: #FFFFFF;
+      padding: 16px 18px 28px;
+      box-shadow: 0 -10px 30px rgb(45 58 103 / 18%);
+    }
+    .drawer-title {
+      color: var(--color-text-primary);
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 24px;
+      margin-bottom: 10px;
+    }
+    .drawer-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .option {
+      height: 44px;
+      border-radius: 10px;
+      background: #F3F7FF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-body);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .option.active {
+      background: var(--color-surface-selected);
+      color: var(--color-accent-blue);
+      border: 1px solid rgb(16 94 255 / 18%);
+    }
+    .drawer-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .btn {
+      height: 42px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .btn.secondary {
+      color: var(--color-accent-blue);
+      background: #FFFFFF;
+      border: 1px solid rgb(16 94 255 / 16%);
+    }
+    .btn.primary {
+      color: #FFFFFF;
+      background: var(--color-accent-blue);
+      box-shadow: 0 8px 18px rgb(16 94 255 / 20%);
+    }
+    .toast {
+      position: absolute;
+      left: 50%;
+      bottom: 148px;
+      transform: translateX(-50%);
+      display: none;
+      padding: 8px 12px;
+      border-radius: 18px;
+      background: rgb(45 58 103 / 92%);
+      color: #FFFFFF;
+      font-size: 12px;
+      z-index: 30;
+      white-space: nowrap;
+    }
+    .toast.show { display: block; }
+  </style>
+</head>
+<body>
+  <main class="phone" aria-label="自选页持仓分析与智能盯盘 HTML 原型">
+    <div class="dynamic-island" aria-hidden="true"></div>
+    <header class="status">
+      <span>9:41</span>
+      <span class="signal">5G <span class="battery"></span></span>
+    </header>
+
+    <section class="topbar">
+      <button class="menu-btn" type="button" aria-label="菜单"><span class="menu-lines"></span></button>
+      <nav class="main-tabs" aria-label="自选业务页签">
+        <button class="main-tab active" type="button" data-tab="watch">自选</button>
+        <button class="main-tab" type="button" data-tab="position">持仓</button>
+        <button class="main-tab has-alert" type="button" data-tab="trigger">触发</button>
+        <button class="main-tab" type="button" data-tab="simulate">模拟</button>
+      </nav>
+      <button class="today-profit" type="button" id="profitEntry">
+        <span class="wallet" aria-hidden="true"></span>
+        <span>
+          <span class="profit-label">今日股票</span>
+          <span class="profit-value">+233.12</span>
+        </span>
+      </button>
+    </section>
+
+    <section class="sheet">
+      <div class="watch-panel" data-panel="watch">
+        <div class="group-filter">
+          <div class="group-scroll">
+            <button class="chip active" type="button">默认组</button>
+            <button class="chip" type="button">默认组</button>
+            <button class="chip" type="button">玩波段</button>
+            <button class="chip" type="button">抓涨停</button>
+          </div>
+          <button class="setting" type="button" id="settingBtn"><span class="setting-icon"></span>设置</button>
+        </div>
+
+        <div class="summary-line">
+          <div>
+            <span class="summary-pair">平均涨幅 <strong>+2.51%</strong></span>
+            <span class="summary-pair" style="margin-left:16px;">加自选后 <strong>+24.31%</strong></span>
+          </div>
+          <button class="add-watch" type="button">自选</button>
+        </div>
+
+        <button class="position-summary" type="button" data-tab-jump="position">
+          <span class="summary-cell">
+            <span class="label">持仓股票</span>
+            <span class="value">8 只</span>
+          </span>
+          <span class="summary-cell">
+            <span class="label">今日盈亏</span>
+            <span class="value rise">+233.12</span>
+          </span>
+          <span class="summary-cell">
+            <span class="label">风险等级</span>
+            <span class="value warn">偏高</span>
+          </span>
+          <span class="summary-cell">
+            <span class="label">待处理</span>
+            <span class="value">2 项</span>
+          </span>
+        </button>
+
+        <div class="table-tools">
+          <div class="tool-icons" aria-label="列表工具">
+            <span class="tool-dot"></span>
+            <span class="tool-dot"></span>
+            <span class="tool-dot"></span>
+            <span class="tool-dot"></span>
+          </div>
+          <div class="sort-head">
+            <span>最新</span>
+            <span>涨幅</span>
+          </div>
+        </div>
+
+        <div class="list-area" aria-label="自选股票列表">
+          <article class="stock-row expanded">
+            <div class="stock-main">
+              <div class="stock-name">汇绿生态</div>
+              <div class="stock-code">301357 <span class="mini-market">融</span><span class="mini-market">GDR</span><span class="mini-market">停</span></div>
+            </div>
+            <div class="spark"><svg viewBox="0 0 62 40" aria-hidden="true"><path d="M2 30 L9 29 L15 26 L21 27 L27 21 L33 24 L39 15 L45 20 L50 10 L56 13 L60 9" fill="none" stroke="#00AB61" stroke-width="1.4"/><path d="M39 15 L45 20 L50 10 L56 13 L60 9" fill="none" stroke="#F62F3F" stroke-width="1.4"/></svg></div>
+            <div class="num rise">23.83</div>
+            <div class="num rise">+2.61%</div>
+            <button class="more" type="button" data-stock="汇绿生态">...</button>
+            <div class="tag-line">
+              <span class="tag position">持仓</span>
+              <span class="tag monitor">盯盘中</span>
+              <span class="tag trigger">急拉触发</span>
+            </div>
+          </article>
+
+          <article class="stock-row expanded">
+            <div class="stock-main">
+              <div class="stock-name">宝明科技</div>
+              <div class="stock-code">002992</div>
+            </div>
+            <div class="spark"><svg viewBox="0 0 62 40" aria-hidden="true"><path d="M2 31 L8 30 L14 28 L20 26 L25 18 L31 22 L36 16 L42 20 L48 14 L54 16 L60 12" fill="none" stroke="#00AB61" stroke-width="1.4"/><path d="M42 20 L48 14 L54 16 L60 12" fill="none" stroke="#F62F3F" stroke-width="1.4"/></svg></div>
+            <div class="num fall">79.98</div>
+            <div class="num rise">+1.07%</div>
+            <button class="more" type="button" data-stock="宝明科技">...</button>
+            <div class="tag-line">
+              <span class="tag">日间顶部信号</span>
+              <span class="tag">主买净占比上榜</span>
+            </div>
+          </article>
+
+          <article class="stock-row">
+            <div class="stock-main">
+              <div class="stock-name">中芯国际</div>
+              <div class="stock-code">H00981 <span class="mini-market">HK</span></div>
+            </div>
+            <div class="spark"><svg viewBox="0 0 62 40" aria-hidden="true"><path d="M2 32 L8 29 L14 30 L20 27 L26 24 L32 25 L38 19 L44 21 L50 13 L56 18 L60 14" fill="none" stroke="#00AB61" stroke-width="1.4"/><path d="M44 21 L50 13 L56 18 L60 14" fill="none" stroke="#F62F3F" stroke-width="1.4"/></svg></div>
+            <div class="num rise">23.83</div>
+            <div class="num rise">+2.61%</div>
+            <button class="more" type="button" data-stock="中芯国际">...</button>
+          </article>
+
+          <article class="stock-row expanded">
+            <div class="stock-main">
+              <div class="stock-name">苹果</div>
+              <div class="stock-code">AAPL <span class="mini-market">US</span></div>
+            </div>
+            <div class="spark"><svg viewBox="0 0 62 40" aria-hidden="true"><path d="M2 31 L9 30 L16 27 L23 28 L30 22 L37 21 L44 17 L50 12 L56 14 L60 10" fill="none" stroke="#00AB61" stroke-width="1.4"/><path d="M44 17 L50 12 L56 14 L60 10" fill="none" stroke="#F62F3F" stroke-width="1.4"/></svg></div>
+            <div class="num rise">23.83</div>
+            <div class="num rise">+2.61%</div>
+            <button class="more" type="button" data-stock="苹果">...</button>
+            <div class="tag-line">
+              <span class="tag position">持仓</span>
+              <span class="tag monitor">盯盘中</span>
+            </div>
+          </article>
+
+          <article class="stock-row expanded">
+            <div class="stock-main">
+              <div class="stock-name">格力电器</div>
+              <div class="stock-code">601989</div>
+            </div>
+            <div class="spark"><svg viewBox="0 0 62 40" aria-hidden="true"><path d="M2 33 L8 31 L14 27 L21 28 L28 24 L35 21 L42 16 L49 19 L55 13 L60 16" fill="none" stroke="#00AB61" stroke-width="1.4"/><path d="M42 16 L49 19 L55 13 L60 16" fill="none" stroke="#F62F3F" stroke-width="1.4"/></svg></div>
+            <div class="num fall">79.98</div>
+            <div class="num rise">+1.07%</div>
+            <button class="more" type="button" data-stock="格力电器">...</button>
+            <div class="tag-line">
+              <span class="tag trigger">跌破成本线</span>
+              <span class="tag">主买净占比上榜</span>
+            </div>
+          </article>
+
+          <article class="stock-row expanded">
+            <div class="stock-main">
+              <div class="stock-name">东方财富</div>
+              <div class="stock-code">000292</div>
+            </div>
+            <div class="spark"><svg viewBox="0 0 62 40" aria-hidden="true"><path d="M2 32 L8 29 L14 28 L20 25 L26 23 L32 18 L38 20 L44 14 L50 18 L56 12 L60 15" fill="none" stroke="#00AB61" stroke-width="1.4"/><path d="M44 14 L50 18 L56 12 L60 15" fill="none" stroke="#F62F3F" stroke-width="1.4"/></svg></div>
+            <div class="num fall">79.98</div>
+            <div class="num rise">+1.07%</div>
+            <button class="more" type="button" data-stock="东方财富">...</button>
+            <div class="tag-line">
+              <span class="tag position">持仓</span>
+              <span class="tag">日间底信号</span>
+            </div>
+          </article>
+
+          <article class="stock-row">
+            <div class="stock-main">
+              <div class="stock-name">中国重工</div>
+              <div class="stock-code">000292</div>
+            </div>
+            <div class="spark"><svg viewBox="0 0 62 40" aria-hidden="true"><path d="M2 33 L9 31 L15 30 L22 25 L29 27 L36 21 L43 20 L50 14 L56 16 L60 12" fill="none" stroke="#00AB61" stroke-width="1.4"/><path d="M43 20 L50 14 L56 16 L60 12" fill="none" stroke="#F62F3F" stroke-width="1.4"/></svg></div>
+            <div class="num fall">79.98</div>
+            <div class="num rise">+1.07%</div>
+            <button class="more" type="button" data-stock="中国重工">...</button>
+          </article>
+        </div>
+      </div>
+
+      <section class="panel" data-panel="position" aria-label="持仓分析">
+        <article class="info-card">
+          <div class="card-title">持仓总览 <button class="card-link" type="button">明细</button></div>
+          <div class="metric-grid">
+            <div class="metric"><div class="metric-label">今日盈亏</div><div class="metric-value rise">+233.12</div></div>
+            <div class="metric"><div class="metric-label">持仓市值</div><div class="metric-value">86.4万</div></div>
+            <div class="metric"><div class="metric-label">可用仓位</div><div class="metric-value">18.6%</div></div>
+            <div class="metric"><div class="metric-label">综合风险</div><div class="metric-value" style="color:var(--color-accent-orange)">偏高</div></div>
+          </div>
+          <div class="risk-line"><span class="metric-label">风险暴露</span><span class="risk-bar"><span class="risk-fill"></span></span><span class="metric-label">72</span></div>
+        </article>
+        <article class="info-card">
+          <div class="card-title">收益贡献</div>
+          <div class="dense-row">
+            <div class="dense-main"><div class="dense-title">中芯国际贡献最高</div><div class="dense-desc">今日贡献 +0.31%，半导体板块走强。</div></div>
+            <button class="mini-btn" type="button">详情</button>
+          </div>
+          <div class="dense-row">
+            <div class="dense-main"><div class="dense-title">格力电器拖累最大</div><div class="dense-desc">跌破成本线，建议先设置回撤盯盘。</div></div>
+            <button class="mini-btn" type="button" data-open-monitor>盯盘</button>
+          </div>
+        </article>
+        <article class="info-card">
+          <div class="card-title">建议动作</div>
+          <div class="dense-row">
+            <div class="dense-main"><div class="dense-title">降低单股集中度</div><div class="dense-desc">前三大持仓占比 62%，建议加入模拟评估。</div></div>
+            <button class="mini-btn" type="button" data-tab-jump="simulate">模拟</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" data-panel="trigger" aria-label="盯盘触发">
+        <article class="trigger-item">
+          <div class="trigger-head"><span class="trigger-name">汇绿生态</span><span class="trigger-type">急拉触发</span></div>
+          <div class="trigger-copy">10:24 涨幅扩大至 +2.61%，同时出现主买净占比上榜。当前 23.83。</div>
+          <div class="trigger-actions">
+            <button type="button">查看详情</button>
+            <button type="button" data-tab-jump="simulate">加入模拟</button>
+            <button type="button" data-close-trigger>关闭提醒</button>
+          </div>
+        </article>
+        <article class="trigger-item">
+          <div class="trigger-head"><span class="trigger-name">格力电器</span><span class="trigger-type">价格触发</span></div>
+          <div class="trigger-copy">10:51 跌破成本线，组合风险等级升至偏高，建议继续观察或模拟减仓。</div>
+          <div class="trigger-actions">
+            <button type="button">查看详情</button>
+            <button type="button" data-tab-jump="simulate">加入模拟</button>
+            <button type="button" data-close-trigger>关闭提醒</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" data-panel="simulate" aria-label="模拟评估">
+        <article class="simulation-card">
+          <div class="simulation-title">模拟评估</div>
+          <div class="simulation-copy" id="simulationCopy">选择持仓或触发记录后，可在这里查看模拟减仓、补仓、止盈或继续持有的影响。本页仅做辅助判断，不代表真实交易。</div>
+        </article>
+        <article class="info-card">
+          <div class="card-title">已带入股票</div>
+          <div class="dense-row">
+            <div class="dense-main"><div class="dense-title">汇绿生态</div><div class="dense-desc">急拉触发后模拟继续持有，预计组合风险小幅上升。</div></div>
+            <button class="mini-btn" type="button">评估</button>
+          </div>
+          <div class="dense-row">
+            <div class="dense-main"><div class="dense-title">格力电器</div><div class="dense-desc">跌破成本线后模拟减仓 10%，预计风险下降 8%。</div></div>
+            <button class="mini-btn" type="button">评估</button>
+          </div>
+        </article>
+      </section>
+    </section>
+
+    <nav class="bottom-nav" aria-label="底部导航">
+      <div class="nav-item"><span class="nav-icon"></span><span>大盘</span></div>
+      <div class="nav-item active"><span class="nav-icon"></span><span>自选</span></div>
+      <div class="nav-item"><span class="nav-icon"></span><span>机会</span></div>
+      <div class="nav-item"><span class="nav-icon"></span><span>交易</span></div>
+      <div class="nav-item"><span class="nav-icon"></span><span>我的</span></div>
+    </nav>
+    <div class="advisor">友投资<br>顾</div>
+    <div class="disclaimer">内容由 AI 生成，不构成投资建议</div>
+    <div class="home-indicator"></div>
+
+    <div class="mask" id="monitorMask" role="dialog" aria-modal="true" aria-label="设置盯盘">
+      <div class="drawer">
+        <div class="drawer-title" id="drawerTitle">设置盯盘</div>
+        <div class="drawer-options">
+          <button class="option active" type="button">价格盯盘</button>
+          <button class="option" type="button">涨跌幅盯盘</button>
+          <button class="option" type="button">异动盯盘</button>
+          <button class="option" type="button">消息盯盘</button>
+        </div>
+        <div class="drawer-actions">
+          <button class="btn secondary" type="button" id="cancelMonitor">取消</button>
+          <button class="btn primary" type="button" id="confirmMonitor">确认设置</button>
+        </div>
+      </div>
+    </div>
+    <div class="toast" id="toast">已设置盯盘</div>
+  </main>
+
+  <script>
+    const tabs = Array.from(document.querySelectorAll('.main-tab'));
+    const panels = Array.from(document.querySelectorAll('[data-panel]'));
+    const monitorMask = document.getElementById('monitorMask');
+    const toast = document.getElementById('toast');
+    const drawerTitle = document.getElementById('drawerTitle');
+    let currentStock = '汇绿生态';
+
+    function showToast(text) {
+      toast.textContent = text;
+      toast.classList.add('show');
+      window.setTimeout(() => toast.classList.remove('show'), 1500);
+    }
+
+    function switchTab(name) {
+      tabs.forEach((tab) => tab.classList.toggle('active', tab.dataset.tab === name));
+      panels.forEach((panel) => {
+        panel.classList.toggle('active', panel.dataset.panel === name && name !== 'watch');
+      });
+      document.querySelector('.watch-panel').style.display = name === 'watch' ? 'block' : 'none';
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => switchTab(tab.dataset.tab));
+    });
+
+    document.querySelectorAll('[data-tab-jump]').forEach((trigger) => {
+      trigger.addEventListener('click', () => switchTab(trigger.dataset.tabJump));
+    });
+
+    document.querySelectorAll('.more').forEach((button) => {
+      button.addEventListener('click', () => {
+        currentStock = button.dataset.stock || '当前股票';
+        drawerTitle.textContent = `为 ${currentStock} 设置盯盘`;
+        monitorMask.classList.add('show');
+      });
+    });
+
+    document.querySelectorAll('[data-open-monitor]').forEach((button) => {
+      button.addEventListener('click', () => {
+        currentStock = '格力电器';
+        drawerTitle.textContent = '为 格力电器 设置盯盘';
+        monitorMask.classList.add('show');
+      });
+    });
+
+    document.querySelectorAll('.option').forEach((option) => {
+      option.addEventListener('click', () => {
+        document.querySelectorAll('.option').forEach((item) => item.classList.remove('active'));
+        option.classList.add('active');
+      });
+    });
+
+    document.getElementById('cancelMonitor').addEventListener('click', () => monitorMask.classList.remove('show'));
+    document.getElementById('confirmMonitor').addEventListener('click', () => {
+      monitorMask.classList.remove('show');
+      showToast(`${currentStock} 已设置盯盘`);
+    });
+    monitorMask.addEventListener('click', (event) => {
+      if (event.target === monitorMask) monitorMask.classList.remove('show');
+    });
+
+    document.querySelectorAll('[data-close-trigger]').forEach((button) => {
+      button.addEventListener('click', () => {
+        button.closest('.trigger-item').style.display = 'none';
+        showToast('已关闭本次提醒');
+      });
+    });
+
+    document.getElementById('profitEntry').addEventListener('click', () => switchTab('position'));
+    document.getElementById('settingBtn').addEventListener('click', () => showToast('进入自选分组设置'));
+  </script>
+</body>
+</html>

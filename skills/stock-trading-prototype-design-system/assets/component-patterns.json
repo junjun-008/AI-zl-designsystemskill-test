@@ -1,0 +1,138 @@
+{
+  "version": "0.1.0",
+  "source": {
+    "figmaFile": "视觉风格2.0",
+    "fileKey": "7udyO6b70md5OLaXY6mVFV",
+    "page": "Page 1",
+    "authority": "Patterns are extracted from real Page 1 screens. Current Components page is reference-only until verified."
+  },
+  "patterns": [
+    {
+      "id": "app-shell-mobile",
+      "name": "移动端页面壳",
+      "sourceFrameIds": ["0:14445", "0:18012", "0:24754", "0:25365"],
+      "anatomy": ["status/top area", "content canvas", "optional bottom navigation"],
+      "rules": [
+        "Use 390px as the default prototype width.",
+        "Keep mobile-first vertical flow.",
+        "Do not use desktop dashboard layout for MVP outputs."
+      ]
+    },
+    {
+      "id": "market-index-card",
+      "name": "市场指数卡片",
+      "sourceNodeIds": ["0:14512", "0:18079"],
+      "sourceFrameIds": ["0:14445", "0:18012"],
+      "anatomy": ["index name", "index value", "change percentage", "rise/fall tone"],
+      "rules": [
+        "Use finance rise/fall tokens for number and percentage.",
+        "Keep values dense and scannable.",
+        "Do not turn index cards into large marketing KPI cards."
+      ]
+    },
+    {
+      "id": "realtime-briefing-card",
+      "name": "实时简报卡片",
+      "sourceNodeIds": ["0:14594", "0:18161"],
+      "sourceFrameIds": ["0:14445", "0:18012"],
+      "anatomy": ["section title", "briefing rows", "time or source metadata", "optional more entry"],
+      "rules": [
+        "Use compact row rhythm.",
+        "Keep text hierarchy clear: title, body, metadata.",
+        "Do not use long article layout unless page pattern is detail-event."
+      ]
+    },
+    {
+      "id": "quick-action-grid",
+      "name": "快捷入口网格",
+      "sourceNodeIds": ["0:14621", "0:18188"],
+      "sourceFrameIds": ["0:14445", "0:18012"],
+      "anatomy": ["icon", "label", "grid row"],
+      "rules": [
+        "Use only real app-like action labels.",
+        "Do not replace missing icons with random generic icons without marking the assumption.",
+        "Keep icon and label centered in each item."
+      ]
+    },
+    {
+      "id": "bottom-navigation",
+      "name": "底部导航",
+      "sourceNodeIds": ["0:15252", "0:18673"],
+      "sourceFrameIds": ["0:14445", "0:18012"],
+      "anatomy": ["navigation rail", "tab icon", "tab label", "active state"],
+      "rules": [
+        "Do not invent a new navigation model for page modifications.",
+        "Use active text/icon tone for the current tab.",
+        "Keep bottom navigation fixed in interactive HTML prototypes when the page scrolls."
+      ]
+    },
+    {
+      "id": "metric-row",
+      "name": "指标行",
+      "sourceNodeIds": ["0:14607", "0:18174", "0:18177"],
+      "sourceFrameIds": ["0:14445", "0:18012"],
+      "anatomy": ["label", "value", "tone"],
+      "rules": [
+        "Use for compact label-value financial data.",
+        "Use finance tokens for directional values.",
+        "Do not over-expand into a full card unless the data needs explanation."
+      ]
+    },
+    {
+      "id": "progress-bar",
+      "name": "进度条",
+      "sourceNodeIds": ["0:14613", "0:18180"],
+      "sourceFrameIds": ["0:14445", "0:18012"],
+      "anatomy": ["track", "fill", "optional label"],
+      "rules": [
+        "Use semantic track and fill colors.",
+        "Progress should support rise/fall or neutral meaning depending on surrounding data."
+      ]
+    },
+    {
+      "id": "ai-trader-header",
+      "name": "AI 交易员头部",
+      "sourceNodeIds": ["0:25396"],
+      "sourceFrameIds": ["0:25365", "0:24754"],
+      "anatomy": ["title", "description", "optional status/action"],
+      "rules": [
+        "Keep AI trading context financial, not generic chatbot.",
+        "Use concise explanation text and expose the primary action clearly."
+      ]
+    },
+    {
+      "id": "stock-pick-card",
+      "name": "股票推荐卡片",
+      "sourceNodeIds": ["0:25441", "0:25448"],
+      "sourceFrameIds": ["0:25365"],
+      "anatomy": ["strategy/source label", "stock name", "price", "performance", "status or tag"],
+      "rules": [
+        "Use real stock-data hierarchy: name, price, performance, status.",
+        "Do not use generic product card layout."
+      ]
+    },
+    {
+      "id": "timeline-event-row",
+      "name": "时间线事件行",
+      "sourceNodeIds": ["0:25507"],
+      "sourceFrameIds": ["0:25365", "0:24754"],
+      "anatomy": ["time/status marker", "event title", "event description", "optional action"],
+      "rules": [
+        "Use for AI trading, event details, and market timeline explanation.",
+        "Rows should stay compact and scannable."
+      ]
+    },
+    {
+      "id": "risk-or-status-notice",
+      "name": "风险/状态提示模块",
+      "sourceFrameIds": ["0:14445", "0:24754", "0:25365"],
+      "anatomy": ["status tone", "short title", "supporting copy", "optional action"],
+      "rules": [
+        "Use for PM page-modification requests that add warnings, risk tips, or status updates.",
+        "Keep the notice visually integrated with existing card rhythm.",
+        "Do not use alert styles that feel like a web admin system."
+      ]
+    }
+  ]
+}
+

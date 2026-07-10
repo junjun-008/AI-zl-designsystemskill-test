@@ -1,0 +1,196 @@
+:root {
+  color-scheme: dark;
+
+  --st-color-bg-app: #12121c;
+  --st-color-bg-elevated: #191826;
+  --st-color-bg-surface: rgba(37, 36, 50, 0.4);
+  --st-color-bg-surface-solid: #252432;
+  --st-color-bg-subtle: rgba(242, 242, 242, 0.051);
+  --st-color-bg-action-primary: #279646;
+  --st-color-bg-action-positive-muted: #7fdf9a;
+  --st-color-bg-action-danger-muted: rgba(255, 112, 112, 0.2);
+
+  --st-color-text-primary: #f2f2f2;
+  --st-color-text-secondary: #bfbfbf;
+  --st-color-text-tertiary: #787878;
+  --st-color-text-inverse: #12121c;
+  --st-color-text-positive: #5ecca3;
+  --st-color-text-positive-strong: #7fdf9a;
+  --st-color-text-negative: #ff7070;
+
+  --st-color-icon-default: #f2f2f2;
+  --st-color-icon-muted: #787878;
+  --st-color-icon-positive: #5ecca3;
+  --st-color-icon-negative: #ff7070;
+
+  --st-color-border-default: #3a3a47;
+  --st-color-border-default-alpha: rgba(58, 58, 71, 0.502);
+  --st-color-border-subtle: rgba(242, 242, 242, 0.2);
+  --st-color-border-accent: #7fdf9a;
+
+  --st-color-chart-positive: #5ecca3;
+  --st-color-chart-negative: #ff7070;
+  --st-color-chart-blue: #4a67ff;
+  --st-color-chart-orange: #e0921c;
+
+  --st-space-0: 0;
+  --st-space-2: 2px;
+  --st-space-4: 4px;
+  --st-space-6: 6px;
+  --st-space-8: 8px;
+  --st-space-10: 10px;
+  --st-space-12: 12px;
+  --st-space-14: 14px;
+  --st-space-16: 16px;
+  --st-space-18: 18px;
+  --st-space-20: 20px;
+  --st-space-24: 24px;
+  --st-space-28: 28px;
+  --st-space-32: 32px;
+  --st-space-36: 36px;
+  --st-space-40: 40px;
+  --st-space-48: 48px;
+  --st-space-56: 56px;
+  --st-space-64: 64px;
+  --st-space-68: 68px;
+  --st-space-80: 80px;
+
+  --st-size-icon-sm: 16px;
+  --st-size-icon-md: 20px;
+  --st-size-icon-lg: 24px;
+  --st-size-button-md: 40px;
+  --st-size-button-lg: 48px;
+  --st-size-input-md: 56px;
+  --st-size-screen-mobile-width: 375px;
+  --st-size-content-mobile-guttered: 343px;
+  --st-size-content-mobile-wide: 360px;
+  --st-size-bottom-nav-height: 68px;
+
+  --st-radius-none: 0;
+  --st-radius-xs: 2px;
+  --st-radius-sm: 4px;
+  --st-radius-md: 6px;
+  --st-radius-lg: 10px;
+  --st-radius-xl: 12px;
+  --st-radius-full: 9999px;
+
+  --st-stroke-none: 0;
+  --st-stroke-hairline: 1px;
+  --st-stroke-medium: 1.5px;
+  --st-stroke-strong: 2px;
+  --st-stroke-chart: 3px;
+
+  --st-font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --st-font-weight-regular: 400;
+  --st-font-weight-medium: 500;
+  --st-font-weight-semibold: 600;
+  --st-font-weight-bold: 700;
+
+  --st-type-label-small: var(--st-font-weight-medium) 10px/12px var(--st-font-family);
+  --st-type-label-medium: var(--st-font-weight-medium) 11px/12px var(--st-font-family);
+  --st-type-body-small: var(--st-font-weight-regular) 12px/14px var(--st-font-family);
+  --st-type-body-medium: var(--st-font-weight-regular) 14px/16px var(--st-font-family);
+  --st-type-body-large: var(--st-font-weight-regular) 16px/19px var(--st-font-family);
+  --st-type-title-large: var(--st-font-weight-semibold) 22px/26px var(--st-font-family);
+  --st-type-headline-small: var(--st-font-weight-semibold) 24px/28px var(--st-font-family);
+  --st-type-display-medium: var(--st-font-weight-semibold) 36px/42px var(--st-font-family);
+
+  --st-effect-blur-glass: 99px;
+  --st-effect-blur-decorative: 231px;
+  --st-effect-shadow-nav: 0 -2px 12px rgba(0, 0, 0, 0.25);
+  --st-effect-shadow-card: 0 4px 8px rgba(0, 0, 0, 0.25);
+
+  --st-c-screen-width: var(--st-size-screen-mobile-width);
+  --st-c-screen-bg: var(--st-color-bg-app);
+  --st-c-screen-padding-x: var(--st-space-20);
+
+  --st-c-card-bg: var(--st-color-bg-surface);
+  --st-c-card-border: var(--st-color-border-default);
+  --st-c-card-radius: var(--st-radius-xl);
+  --st-c-card-padding: var(--st-space-20);
+  --st-c-card-gap: var(--st-space-16);
+
+  --st-c-button-primary-height-lg: var(--st-size-button-lg);
+  --st-c-button-primary-height-md: var(--st-size-button-md);
+  --st-c-button-primary-bg-default: var(--st-color-bg-action-primary);
+  --st-c-button-primary-bg-pressed: #21823d;
+  --st-c-button-primary-bg-disabled: rgba(242, 242, 242, 0.051);
+  --st-c-button-primary-fg-default: var(--st-color-text-primary);
+  --st-c-button-primary-fg-disabled: var(--st-color-text-tertiary);
+  --st-c-button-primary-radius: var(--st-radius-md);
+  --st-c-button-primary-padding-x: var(--st-space-16);
+  --st-c-button-primary-gap: var(--st-space-8);
+
+  --st-c-button-text-fg-default: var(--st-color-text-positive);
+  --st-c-button-text-fg-pressed: var(--st-color-text-positive-strong);
+  --st-c-button-text-fg-disabled: var(--st-color-text-tertiary);
+
+  --st-c-icon-button-size: var(--st-space-40);
+  --st-c-icon-button-radius: var(--st-radius-full);
+  --st-c-icon-button-bg-default: transparent;
+  --st-c-icon-button-bg-pressed: var(--st-color-bg-subtle);
+  --st-c-icon-button-border-focus: var(--st-color-border-accent);
+
+  --st-c-top-app-bar-height: 42px;
+  --st-c-top-app-bar-title-font: var(--st-type-title-large);
+  --st-c-top-app-bar-icon-color: var(--st-color-icon-default);
+
+  --st-c-bottom-nav-height: var(--st-size-bottom-nav-height);
+  --st-c-bottom-nav-bg: var(--st-color-bg-elevated);
+  --st-c-bottom-nav-item-fg-default: var(--st-color-text-tertiary);
+  --st-c-bottom-nav-item-fg-selected: var(--st-color-text-primary);
+  --st-c-bottom-nav-icon-selected: var(--st-color-icon-positive);
+
+  --st-c-stock-row-height-default: 56px;
+  --st-c-stock-row-height-compact: 44px;
+  --st-c-stock-row-logo-size: var(--st-size-icon-lg);
+  --st-c-stock-row-title-font: var(--st-type-body-large);
+  --st-c-stock-row-meta-font: var(--st-type-body-small);
+  --st-c-stock-row-price-font: var(--st-type-body-large);
+  --st-c-stock-row-positive: var(--st-color-text-positive);
+  --st-c-stock-row-negative: var(--st-color-text-negative);
+  --st-c-stock-row-neutral: var(--st-color-text-tertiary);
+
+  --st-c-market-card-width: 100px;
+  --st-c-market-card-height: 98px;
+  --st-c-market-card-bg: var(--st-color-bg-surface);
+  --st-c-market-card-border: var(--st-color-border-default);
+  --st-c-market-card-border-focus: var(--st-color-border-accent);
+  --st-c-market-card-radius: var(--st-radius-md);
+
+  --st-c-segment-tab-height: 28px;
+  --st-c-segment-tab-radius: var(--st-radius-full);
+  --st-c-segment-tab-bg-selected: var(--st-color-bg-action-positive-muted);
+  --st-c-segment-tab-fg-selected: var(--st-color-text-inverse);
+  --st-c-segment-tab-fg-default: var(--st-color-text-primary);
+  --st-c-segment-tab-fg-disabled: var(--st-color-text-tertiary);
+
+  --st-c-payment-method-height: var(--st-size-input-md);
+  --st-c-payment-method-bg: var(--st-color-bg-surface);
+  --st-c-payment-method-border-default: var(--st-color-border-default);
+  --st-c-payment-method-border-selected: var(--st-color-border-accent);
+  --st-c-payment-method-radius: var(--st-radius-md);
+
+  --st-c-amount-chip-height: var(--st-space-40);
+  --st-c-amount-chip-bg-default: transparent;
+  --st-c-amount-chip-bg-selected: var(--st-color-bg-action-positive-muted);
+  --st-c-amount-chip-border-default: var(--st-color-border-default);
+  --st-c-amount-chip-radius: var(--st-radius-md);
+
+  --st-c-input-height: 44px;
+  --st-c-input-bg: var(--st-color-bg-subtle);
+  --st-c-input-border-default: var(--st-color-border-default);
+  --st-c-input-border-focus: var(--st-color-border-accent);
+  --st-c-input-border-error: var(--st-color-text-negative);
+  --st-c-input-radius: var(--st-radius-md);
+
+  --st-c-stepper-dot-size: 14px;
+  --st-c-stepper-active: var(--st-color-text-positive);
+  --st-c-stepper-inactive: var(--st-color-text-tertiary);
+  --st-c-stepper-line: var(--st-color-border-default);
+
+  --st-c-key-stat-row-height: 32px;
+  --st-c-key-stat-label-font: var(--st-type-body-small);
+  --st-c-key-stat-value-font: var(--st-type-body-small);
+  --st-c-key-stat-divider: var(--st-color-border-default-alpha);
+}

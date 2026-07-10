@@ -1,0 +1,75 @@
+{
+  "version": "0.1.0",
+  "figma": {
+    "fileName": "视觉风格2.0",
+    "fileKey": "7udyO6b70md5OLaXY6mVFV",
+    "sourcePage": {
+      "name": "Page 1",
+      "id": "0:1"
+    },
+    "readOnlyExtractionDate": "2026-07-09"
+  },
+  "authorityOrder": [
+    "Figma Page 1 real screens",
+    "Confirmed Color variables and Light/Dark mapping",
+    "Verified rebuilt components",
+    "User-confirmed review findings",
+    "Explicitly marked model assumptions"
+  ],
+  "pageSources": {
+    "marketHomeLight": ["0:14445", "0:15253", "0:15977"],
+    "marketHomeDark": ["0:18012", "0:18674", "0:19355"],
+    "aiTrading": ["0:24754", "0:25365"],
+    "detailEvent": ["0:21608", "0:22238", "0:22853", "0:23538"],
+    "watchlist": ["0:16954", "0:24634"],
+    "trading": ["0:17978", "0:24794"],
+    "limitUpHunter": ["0:20562"]
+  },
+  "componentSources": {
+    "market-index-card": {
+      "light": "0:14512",
+      "dark": "0:18079"
+    },
+    "realtime-briefing-card": {
+      "light": "0:14594",
+      "dark": "0:18161"
+    },
+    "quick-action-grid": {
+      "light": "0:14621",
+      "dark": "0:18188"
+    },
+    "bottom-navigation": {
+      "light": "0:15252",
+      "dark": "0:18673"
+    },
+    "metric-row": {
+      "light": ["0:14607"],
+      "dark": ["0:18174", "0:18177"]
+    },
+    "progress-bar": {
+      "light": "0:14613",
+      "dark": "0:18180"
+    },
+    "ai-trader-header": {
+      "light": "0:25396"
+    },
+    "stock-pick-card": {
+      "light": ["0:25441", "0:25448"]
+    },
+    "timeline-event-row": {
+      "light": "0:25507"
+    }
+  },
+  "confirmedTokenSources": {
+    "colorCollection": "视觉风格2.0 / Color",
+    "modes": ["Light", "Dark"],
+    "documentationNode": "Dark Token Mapping / 暗色变量映射表"
+  },
+  "knownLimitations": [
+    "Current Components page is not authoritative for prototype generation until individual components are verified.",
+    "Icon extraction is not yet reliable enough to define final icon rules.",
+    "Spacing and radius tokens are MVP approximations and need a later focused measurement pass.",
+    "HTML prototype output is the MVP target; Figma prototype output is deferred."
+  ]
+}
+

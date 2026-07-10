@@ -1,0 +1,80 @@
+{
+  "skill_name": "stock-trading-prototype-design-system",
+  "version": "0.1.1",
+  "evals": [
+    {
+      "id": "eval-001",
+      "prompt": "生成一个 AI 持仓诊断页面，展示风险等级、持仓建议、可执行操作，风格要符合当前 App。",
+      "expected_output": "生成 390px 亮色 HTML 可交互原型，路由到 ai-trading，使用 AI 交易头部、股票/持仓卡、风险或状态提示、主操作按钮，并附带自检。",
+      "files": ["SKILL.md", "references/page-patterns.md", "references/prototype-flows.md", "references/components-shared.md", "assets/design-tokens.css"],
+      "expectations": [
+        "选择 ai-trading 页面模式。",
+        "不生成通用聊天机器人页面。",
+        "使用 token 而不是随意 raw hex。",
+        "明确交易数据是假设。",
+        "包含评审所需交互说明。"
+      ]
+    },
+    {
+      "id": "eval-002",
+      "prompt": "新增一个行情异动提醒页面，包含指数变化、异动原因、相关股票和快捷操作。",
+      "expected_output": "生成 market-home 或 detail-event 风格的 390px HTML 原型，使用市场指数卡、实时简报/解释区、相关股票模块和快捷入口。",
+      "files": ["references/page-patterns.md", "references/components-shared.md", "assets/component-patterns.json"],
+      "expectations": [
+        "金融涨跌颜色语义正确。",
+        "页面保持移动端高信息密度。",
+        "不使用桌面仪表盘或营销页结构。",
+        "快捷操作使用 App 风格模块。"
+      ]
+    },
+    {
+      "id": "eval-003",
+      "prompt": "做一个暗色模式 AI 交易优化页，展示当前持仓、优化方案和执行按钮。",
+      "expected_output": "生成 data-theme=\"dark\" 的 HTML 原型，路由到 ai-trading，并使用 dark-mode token 映射。",
+      "files": ["references/dark-mode.md", "references/page-patterns.md", "assets/design-tokens.css"],
+      "expectations": [
+        "根节点或页面容器设置 data-theme=\"dark\"。",
+        "页面结构不因暗色而改变。",
+        "rise/fall 语义保持一致。",
+        "说明暗色来自 token 映射。"
+      ]
+    },
+    {
+      "id": "eval-004",
+      "prompt": "在现有行情首页风格里新增一个风险提示模块，用于提示用户今日市场波动较大。",
+      "expected_output": "生成页面修改类方案，保留行情首页壳和导航，只新增一个融入卡片节奏的风险提示模块。",
+      "files": ["references/prototype-flows.md", "references/components-shared.md", "references/page-patterns.md"],
+      "expectations": [
+        "识别为 page-modification。",
+        "不重构整页。",
+        "风险提示模块不使用后台 alert 风格。",
+        "说明新增模块插入位置和交互。"
+      ]
+    },
+    {
+      "id": "eval-005",
+      "prompt": "根据 PRD 和 Figma Page 1 的自选页截图，优化已有自选页：在自选列表中标记已持仓股票、盯盘中状态和触发提醒，默认亮色，390px 移动端，只输出手机 HTML 原型。",
+      "expected_output": "生成截图驱动的已有页面修改原型：先保留来源截图中的顶部业务 Tab、分组胶囊、收益概览、股票列表密度和底部导航，再在列表行内新增持仓/盯盘/触发状态，不重构整页。",
+      "files": ["references/screenshot-driven-workflow.md", "references/components-shared.md", "references/mobile.md", "assets/design-tokens.css", "assets/icon-index.json"],
+      "expectations": [
+        "必须识别为截图/Figma 驱动的已有页面修改。",
+        "不得把自选页写成固定页面模板或重新设计整页。",
+        "保留来源页面的导航、筛选、列表和底部导航结构关系。",
+        "新增持仓、盯盘中、触发状态应融入股票列表行。",
+        "缺失真实 icon 时使用 icon-index 的低调占位规则并标注待替换。",
+        "不输出桌面说明区、营销卡片或通用金融 Dashboard。"
+      ]
+    },
+    {
+      "id": "eval-006",
+      "prompt": "帮我写一篇营销海报文案。",
+      "expected_output": "拒绝使用本 Skill 或说明该请求不属于此 Skill 范围。",
+      "files": ["SKILL.md"],
+      "expectations": [
+        "不触发原型设计系统 Skill。",
+        "不生成营销海报视觉规范。",
+        "说明本 Skill 只覆盖当前 App 风格的移动端原型。"
+      ]
+    }
+  ]
+}

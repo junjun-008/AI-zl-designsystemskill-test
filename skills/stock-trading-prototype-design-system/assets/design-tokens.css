@@ -1,0 +1,85 @@
+:root {
+  /* Source: Figma Page 1 + confirmed Color variables, default theme is light. */
+  --prototype-width: 390px;
+  --prototype-safe-top: 44px;
+  --prototype-bottom-nav-height: 158px;
+
+  --color-bg-page: #F3F5F9;
+  --color-surface-card: #F7FBFF;
+  --color-surface-subtle: #E1EDFF;
+  --color-surface-selected: #E1EDFF;
+  --color-surface-navigation: #F7FBFF;
+  --color-bg-blue-overlay: #E1EDFF;
+
+  --color-text-primary: #030303;
+  --color-text-body: #353739;
+  --color-text-secondary: #6D778B;
+  --color-text-disabled: #9FABC4;
+  --color-text-active: #105EFF;
+
+  --color-accent-blue: #105EFF;
+  --color-accent-dark-blue: #2D3A67;
+  --color-accent-orange: #F36C29;
+  --color-finance-rise: #F62F3F;
+  --color-finance-fall: #00AB61;
+  --color-rank-hot: #F62F3F;
+  --color-rank-second: #F36C29;
+  --color-rank-third: #F39829;
+  --color-border-subtle: #FFFFFF;
+  --color-border-white: #FFFFFF;
+
+  /* Common font sizes observed in Page 1. */
+  --font-size-caption: 11px;
+  --font-size-meta: 12px;
+  --font-size-tab: 13px;
+  --font-size-body: 14px;
+  --font-size-number: 18px;
+  --font-size-title: 22px;
+
+  /* MVP layout rhythm for HTML prototypes. Values will be refined from source evidence. */
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-card: 12px;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 4px 18px rgb(37 118 255 / 8%);
+}
+
+[data-theme="dark"] {
+  --color-bg-page: #081126;
+  --color-surface-card: #091531;
+  --color-surface-subtle: #1D2850;
+  --color-surface-selected: #1D2850;
+  --color-surface-navigation: #091531;
+  --color-bg-blue-overlay: rgb(96 138 206 / 8%);
+
+  --color-text-primary: #FFFFFF;
+  --color-text-body: #ADBDD8;
+  --color-text-secondary: #ADB0B9;
+  --color-text-disabled: #7D91B2;
+  --color-text-active: #D7EFFF;
+
+  --color-accent-blue: #2576FF;
+  --color-accent-dark-blue: #D7EFFF;
+  --color-accent-orange: #FF9048;
+  --color-finance-rise: #F62F3F;
+  --color-finance-fall: #00AB61;
+  --color-rank-hot: #F63843;
+  --color-rank-second: #FF9048;
+  --color-rank-third: #FA4A24;
+  --color-border-subtle: #ADB0B9;
+  --color-border-white: #ADB0B9;
+
+  --shadow-card: 0 4px 18px rgb(37 118 255 / 10%);
+}
+

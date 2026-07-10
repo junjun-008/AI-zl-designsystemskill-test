@@ -1,0 +1,113 @@
+{
+  "version": "0.1.0",
+  "source": {
+    "figmaFile": "视觉风格2.0",
+    "fileKey": "7udyO6b70md5OLaXY6mVFV",
+    "page": "Page 1",
+    "extractedAt": "2026-07-09",
+    "mode": "read-only"
+  },
+  "defaultOutput": {
+    "prototypeType": "html-interactive",
+    "theme": "light",
+    "viewportWidth": 390
+  },
+  "topLevelFrames": [
+    { "id": "0:14445", "name": "自定义-正常态", "class": "home-light", "size": { "width": 390, "height": 1356 } },
+    { "id": "0:15253", "name": "自定义-正常态", "class": "home-light", "size": { "width": 390, "height": 844 } },
+    { "id": "0:15977", "name": "自定义-正常态", "class": "home-light", "size": { "width": 390, "height": 844 } },
+    { "id": "0:18012", "name": "自定义-正常态", "class": "home-dark", "size": { "width": 390, "height": 1389 } },
+    { "id": "0:18674", "name": "自定义-正常态", "class": "home-dark", "size": { "width": 390, "height": 844 } },
+    { "id": "0:19355", "name": "自定义-正常态", "class": "home-dark", "size": { "width": 390, "height": 844 } },
+    { "id": "0:24754", "name": "AI智能投资", "class": "ai-trading", "size": { "width": 390, "height": 1293 } },
+    { "id": "0:25365", "name": "AI智能投资", "class": "ai-trading", "size": { "width": 390, "height": 844 } },
+    { "id": "0:21608", "name": "发展脉络详情-单行标题", "class": "detail-event", "size": { "width": 390, "height": 844 } },
+    { "id": "0:22238", "name": "热点事件-单行标题", "class": "detail-event", "size": { "width": 390, "height": 844 } },
+    { "id": "0:22853", "name": "关联 ETF 详情", "class": "detail-event", "size": { "width": 390, "height": 844 } },
+    { "id": "0:23538", "name": "事件详情-长图", "class": "detail-event", "size": { "width": 390, "height": 844 } },
+    { "id": "0:24634", "name": "自选", "class": "watchlist", "size": { "width": 390, "height": 844 } },
+    { "id": "0:20562", "name": "涨停猎手", "class": "limit-up-hunter", "size": { "width": 390, "height": 844 } },
+    { "id": "0:17978", "name": "个股交易", "class": "trading", "size": { "width": 390, "height": 844 } },
+    { "id": "0:24794", "name": "实盘交易", "class": "trading", "size": { "width": 390, "height": 844 } }
+  ],
+  "mvpPagePatterns": [
+    {
+      "id": "market-home",
+      "name": "行情首页类",
+      "sourceFrameIds": ["0:14445", "0:15253", "0:15977", "0:18012", "0:18674", "0:19355"],
+      "useWhen": ["已有行情首页修改", "新增首页模块", "行情异动提醒", "市场概览"],
+      "recommendedStructure": [
+        "status/top navigation",
+        "workspace or market navigation tabs",
+        "market summary header",
+        "market index cards",
+        "realtime briefing",
+        "quick action grid",
+        "stock or topic ranking sections",
+        "bottom navigation"
+      ],
+      "prototypeNotes": [
+        "默认 390px 移动端宽度。",
+        "信息密度偏高，卡片之间保持紧凑。",
+        "金融红绿语义必须沿用 token。",
+        "默认生成亮色，用户指定时才生成暗色。"
+      ]
+    },
+    {
+      "id": "ai-trading",
+      "name": "AI 交易/交易辅助类",
+      "sourceFrameIds": ["0:24754", "0:25365"],
+      "useWhen": ["AI 持仓诊断", "交易优化建议", "AI 交易员", "自动模拟交易", "交易计划生成"],
+      "recommendedStructure": [
+        "AI trader title or header",
+        "purpose description",
+        "current position or selected stock area",
+        "optimization proposal cards",
+        "timeline or event rows",
+        "primary action button",
+        "history or secondary action entry"
+      ],
+      "prototypeNotes": [
+        "避免通用 AI 助手聊天页风格，要保留金融交易场景。",
+        "操作按钮必须明确风险和执行含义。",
+        "如果涉及交易动作，原型说明里必须标注数据假设和非真实交易。"
+      ]
+    },
+    {
+      "id": "detail-event",
+      "name": "详情/事件信息类",
+      "sourceFrameIds": ["0:21608", "0:22238", "0:22853", "0:23538"],
+      "useWhen": ["事件详情", "发展脉络", "热点事件", "关联 ETF", "信息解释"],
+      "recommendedStructure": [
+        "single-line page title",
+        "summary block",
+        "timeline or relation list",
+        "related stocks or ETF cards",
+        "explanation paragraphs",
+        "bottom action area when needed"
+      ],
+      "prototypeNotes": [
+        "优先保证信息结构清楚，不做营销式大标题。",
+        "文本解释模块要和数据卡片保持层级区分。"
+      ]
+    },
+    {
+      "id": "page-modification",
+      "name": "已有页面修改类",
+      "sourceFrameIds": ["0:14445", "0:24754", "0:25365"],
+      "useWhen": ["页面修改", "功能调整", "新增模块功能", "新增风险提示", "新增状态提示"],
+      "recommendedStructure": [
+        "identify the closest existing page pattern",
+        "keep original shell and navigation",
+        "insert or replace one focused module",
+        "show before/after intent in prototype notes",
+        "include interaction or state changes only when required"
+      ],
+      "prototypeNotes": [
+        "修改类需求默认不重构整页。",
+        "新增模块必须使用现有卡片、数据行、按钮、提示区的视觉语言。"
+      ]
+    }
+  ]
+}
+

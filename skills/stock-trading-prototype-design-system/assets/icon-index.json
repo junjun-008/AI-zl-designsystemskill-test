@@ -1,0 +1,87 @@
+{
+  "version": "0.1.0",
+  "purpose": "Semantic icon index for HTML prototypes. This file does not package final icon assets; it records preferred source lookup and fallback behavior.",
+  "sourcePriority": [
+    "Figma node in current screenshot or Page 1",
+    "existing local asset exported from Figma",
+    "simple low-fidelity placeholder with explicit note"
+  ],
+  "fallbackRules": [
+    "Do not invent decorative icons when the source icon is unavailable.",
+    "Do not use emoji as product icons.",
+    "Use one consistent placeholder style within a single prototype.",
+    "Mark missing production icons as icon pending replacement in the output notes when relevant."
+  ],
+  "icons": [
+    {
+      "semanticName": "menu",
+      "chineseName": "菜单",
+      "commonLocations": ["top navigation"],
+      "preferredSource": "current Figma page node",
+      "fallback": "three-line menu glyph inside the same container size as source"
+    },
+    {
+      "semanticName": "settings",
+      "chineseName": "设置",
+      "commonLocations": ["filter row", "page toolbar"],
+      "preferredSource": "current Figma page node",
+      "fallback": "two-line slider placeholder or text-only setting entry"
+    },
+    {
+      "semanticName": "add-watchlist",
+      "chineseName": "添加自选",
+      "commonLocations": ["summary row", "empty state", "watchlist tools"],
+      "preferredSource": "PlusCircleOutlined from Figma if present",
+      "fallback": "plus sign in a thin circle"
+    },
+    {
+      "semanticName": "list-tools",
+      "chineseName": "列表工具",
+      "commonLocations": ["watchlist table header", "market list header"],
+      "preferredSource": "current Figma page node",
+      "fallback": "small square placeholders matching source spacing"
+    },
+    {
+      "semanticName": "bottom-nav-market",
+      "chineseName": "大盘",
+      "commonLocations": ["bottom navigation"],
+      "preferredSource": "bottom navigation instance from current Figma page",
+      "fallback": "single neutral rounded square placeholder"
+    },
+    {
+      "semanticName": "bottom-nav-watchlist",
+      "chineseName": "自选",
+      "commonLocations": ["bottom navigation"],
+      "preferredSource": "bottom navigation instance from current Figma page",
+      "fallback": "active rounded square placeholder using accent color"
+    },
+    {
+      "semanticName": "bottom-nav-opportunity",
+      "chineseName": "机会",
+      "commonLocations": ["bottom navigation"],
+      "preferredSource": "bottom navigation instance from current Figma page",
+      "fallback": "single neutral rounded square placeholder"
+    },
+    {
+      "semanticName": "bottom-nav-trade",
+      "chineseName": "交易",
+      "commonLocations": ["bottom navigation"],
+      "preferredSource": "bottom navigation instance from current Figma page",
+      "fallback": "single neutral rounded square placeholder"
+    },
+    {
+      "semanticName": "advisor-avatar",
+      "chineseName": "投顾头像",
+      "commonLocations": ["floating advisor entry"],
+      "preferredSource": "current Figma page image asset",
+      "fallback": "text-only circular entry with icon pending replacement note"
+    },
+    {
+      "semanticName": "stock-market-tag",
+      "chineseName": "市场小标签",
+      "commonLocations": ["stock list row"],
+      "preferredSource": "HTML text tag, not image asset",
+      "fallback": "small bordered text tag"
+    }
+  ]
+}
