@@ -41,7 +41,7 @@ description: Use this Skill when a product manager or designer needs a mobile HT
 | 事件详情、发展脉络、热点事件、关联 ETF、信息解释页 | `references/page-patterns.md`, `references/components-shared.md`, `references/mobile.md` |
 | 已有页面修改、功能调整、新增模块功能、PRD + 截图改页 | `references/screenshot-driven-workflow.md`, `references/prototype-flows.md`, `references/components-shared.md`, `references/mobile.md` |
 | 明暗色、视觉 token、颜色/字号/圆角/间距 | `references/visual-rules.md`, `references/dark-mode.md`, `assets/design-tokens.css` |
-| 图标、底部导航图标、工具图标缺失处理 | `assets/icon-index.json`, `references/components-shared.md` |
+| 图标、底部导航图标、工具图标缺失处理 | `assets/icon-index.json`, `assets/icons/icon-map.json`, `references/components-shared.md` |
 | 术语不清、业务/设计/代码命名冲突 | `GLOSSARY.md` |
 | 规则变更、失败案例、是否新增规则 | `references/meta-rules.md`, `references/case-studies.md` |
 
@@ -60,7 +60,8 @@ description: Use this Skill when a product manager or designer needs a mobile HT
 
 1. 业务组件和页面模块由本 Skill 约束，见 `references/components-shared.md`。
 2. HTML 实现可使用普通 HTML/CSS/JS，但视觉必须来自本 Skill 的 token 和模式。
-3. 图标在 MVP 阶段优先查 `assets/icon-index.json` 和当前 Figma 来源；缺失时只允许用简化占位并明确标注“图标待替换”，不能当作真实图标库。
+3. 图标优先调用项目通用图标包 `assets/icons/icon-map.json` 和 SVG Sprite；只有通用图标包没有覆盖的特殊业务图标，才允许临时绘制并标注“临时图标”。
+4. 已存在于通用图标包的图标禁止在页面内重新手写 SVG 路径。
 
 ## 输出自检
 
@@ -73,7 +74,7 @@ description: Use this Skill when a product manager or designer needs a mobile HT
 - [ ] 金融红绿语义是否正确。
 - [ ] 修改类需求是否保留原页面壳和导航。
 - [ ] 新增内容是否只插入或替换影响区域，而不是重构整页。
-- [ ] 缺失 icon 是否按 `assets/icon-index.json` 处理。
+- [ ] 通用 icon 是否按 `icon-map.json` 调用，特殊 icon 是否明确标记为临时方案。
 - [ ] 交互状态是否足够用于评审。
 - [ ] 假设和缺失素材是否明确标注。
 
@@ -99,5 +100,7 @@ description: Use this Skill when a product manager or designer needs a mobile HT
 | `assets/page-patterns.json` | 页面模式结构化资产 |
 | `assets/component-patterns.json` | 模块模式结构化资产 |
 | `assets/icon-index.json` | icon 语义索引和缺失素材处理规则 |
+| `assets/icons/icon-map.json` | 通用 icon ID 与 SVG Sprite 映射 |
+| `assets/icons/common-icons/icon-sprite.svg` | 通用 SVG icon 资产 |
 | `assets/source-map.json` | Figma 来源映射 |
 | `evals/evals.json` | MVP 测试任务 |

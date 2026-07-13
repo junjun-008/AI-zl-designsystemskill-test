@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "purpose": "通用 App 图标资产映射。页面通过 id 调用 SVG Sprite，不直接手写已收录图标。",
+  "source": "Stock Trading App / Page 1 style reference",
+  "asset": "common-icons/icon-sprite.svg",
+  "defaultViewBox": "0 0 24 24",
+  "defaultStroke": "1.7",
+  "icons": {
+    "nav-market": { "zhName": "大盘", "category": "navigation", "size": 24, "status": "approved" },
+    "nav-watchlist": { "zhName": "自选", "category": "navigation", "size": 24, "status": "approved" },
+    "nav-opportunity": { "zhName": "机会", "category": "navigation", "size": 24, "status": "approved" },
+    "nav-trade": { "zhName": "交易", "category": "navigation", "size": 24, "status": "approved" },
+    "nav-menu": { "zhName": "菜单", "category": "navigation", "size": 24, "status": "approved" },
+    "nav-back": { "zhName": "返回", "category": "navigation", "size": 24, "status": "approved" },
+    "search": { "zhName": "搜索", "category": "action", "size": 20, "status": "approved" },
+    "settings": { "zhName": "设置", "category": "action", "size": 20, "status": "approved" },
+    "add": { "zhName": "添加", "category": "action", "size": 20, "status": "approved" },
+    "filter": { "zhName": "筛选", "category": "action", "size": 20, "status": "approved" },
+    "group": { "zhName": "分组", "category": "action", "size": 20, "status": "approved" },
+    "sort": { "zhName": "排序", "category": "action", "size": 16, "status": "approved" },
+    "more": { "zhName": "更多", "category": "action", "size": 20, "status": "approved" },
+    "close": { "zhName": "关闭", "category": "action", "size": 20, "status": "approved" },
+    "check": { "zhName": "完成", "category": "action", "size": 20, "status": "approved" },
+    "wallet": { "zhName": "钱包", "category": "portfolio", "size": 20, "status": "approved" },
+    "position": { "zhName": "持仓", "category": "portfolio", "size": 20, "status": "approved" },
+    "monitoring": { "zhName": "盯盘", "category": "monitoring", "size": 20, "status": "approved" },
+    "alert-triggered": { "zhName": "已触发", "category": "monitoring", "size": 16, "status": "approved" },
+    "rule-active": { "zhName": "生效中", "category": "monitoring", "size": 16, "status": "approved" },
+    "rule-paused": { "zhName": "已暂停", "category": "monitoring", "size": 16, "status": "approved" },
+    "message": { "zhName": "消息", "category": "market", "size": 20, "status": "approved" },
+    "trend-up": { "zhName": "上涨趋势", "category": "market", "size": 20, "status": "approved" },
+    "chevron-down": { "zhName": "下拉", "category": "action", "size": 16, "status": "approved" }
+  },
+  "rules": [
+    "通用图标优先调用本映射表，不在页面内重复手写 SVG。",
+    "图标颜色由 CSS currentColor 控制，图标资产不写死主题颜色。",
+    "特殊业务图标可以临时绘制，但必须标记 temporary，不得覆盖 approved 图标。",
+    "股票 Logo 单独管理，不使用通用功能图标替代。"
+  ]
+}

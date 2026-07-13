@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026.07.13
+
+### Added
+
+- added `assets/icons/common-icons/icon-sprite.svg` with 24 reusable app icons
+- added `assets/icons/icon-map.json` as the machine-readable icon registry
+- wired the current HTML prototype to use inline Sprite references instead of page-specific common SVG paths
+
+### Clarified
+
+- CSS controls icon size, color, and state; SVG stores icon geometry; JSON maps IDs to assets
+- special page icons may be temporary, but approved common icons must be reused
+
 ## 2026.07.10
 
 ### Added

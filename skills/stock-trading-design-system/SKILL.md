@@ -80,8 +80,9 @@ Read only when needed:
 7. Always keep button, tab, list row, payment control, and navigation elements componentized.
 8. Always use local icon/logo components for business rows instead of pasted bitmap placeholders.
 9. Always use `assets/icon-index.json` before choosing icons for navigation, actions, watchlist, portfolio, monitoring, trigger, market, payment, or logo slots.
-10. Always use role-based typography names such as `Display`, `Headline`, `Title`, `Body`, `Label`.
-11. Always review new output against the Figma handbook pages before handoff.
+10. For HTML prototypes, resolve approved common icons through `assets/icons/icon-map.json` and the shared SVG Sprite before drawing a new SVG path.
+11. Always use role-based typography names such as `Display`, `Headline`, `Title`, `Body`, `Label`.
+12. Always review new output against the Figma handbook pages before handoff.
 
 ### Never
 
@@ -106,6 +107,7 @@ Read:
 - one file in `product-lines/`
 - `docs/layout-and-component-specs.md`
 - `assets/icon-index.json` when the page contains navigation icons, toolbar icons, stock logos, monitoring states, trigger states, payment icons, or other icon-only actions
+- `assets/icons/icon-map.json` and `assets/icons/common-icons/icon-sprite.svg` for reusable HTML prototype icons
 
 ### If the task is component generation or component review
 
@@ -115,6 +117,7 @@ Read:
 - `tokens.json`
 - `docs/layout-and-component-specs.md`
 - `assets/icon-index.json` when the component has icon, logo, leading icon, trailing icon, method icon, or instance-swap slots
+- `assets/icons/icon-map.json` when the component is implemented in an HTML prototype
 - relevant case study in `case-studies/`
 
 ### If the task is prototype or implementation output
@@ -126,6 +129,8 @@ Read:
 - `component-variables.css`
 - `components.md`
 - `assets/icon-index.json`
+- `assets/icons/icon-map.json`
+- `assets/icons/common-icons/icon-sprite.svg`
 
 ### If the task is onboarding, team sync, or collaboration governance
 
@@ -168,6 +173,8 @@ The output should satisfy all of the following:
 - `page-list.md`: page rules and module composition
 - `docs/layout-and-component-specs.md`: detailed measurement specs
 - `assets/icon-index.json`: semantic icon/logo usage map with Chinese meanings, business categories, preferred usage, and fallback rules
+- `assets/icons/icon-map.json`: reusable common icon registry for HTML prototypes
+- `assets/icons/common-icons/icon-sprite.svg`: shared SVG icon asset set
 - `case-studies/`: real failure patterns and review examples
 
 ## Self Check
