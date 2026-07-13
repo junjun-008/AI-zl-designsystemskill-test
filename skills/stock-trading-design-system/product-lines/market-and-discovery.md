@@ -1,21 +1,21 @@
-# Market And Discovery
+# 行情和发现
 
-## Scope
+## 适用范围
 
-Use this overlay for:
+以下场景使用这套覆盖规则：
 
-- trending pages
-- watchlist browsing
-- sector or top mover exploration
-- discovery-oriented market surfaces
+- 趋势页面
+- 自选浏览
+- 行业或涨跌幅榜探索
+- 以发现为主的行情界面
 
-## Emphasis
+## 信息重点
 
-- scan speed
-- category switching
-- price movement clarity
+- 扫描速度
+- 分类切换
+- 价格变化清晰度
 
-## Preferred Modules
+## 推荐模块
 
 - `Segment Tab`
 - `Trending Carousel`
@@ -23,14 +23,14 @@ Use this overlay for:
 - `Market Filter Header`
 - `Stock List Item`
 
-## Copy Tone
+## 文案语气
 
-- concise
-- data-first
-- low ornament
+- 简洁
+- 数据优先
+- 少装饰
 
-## Avoid
+## 避免
 
-- long explainer paragraphs
-- mixed list densities inside the same module
-- generic placeholder logos
+- 大段解释文字
+- 同一个模块中混用多种列表密度
+- 通用占位 Logo

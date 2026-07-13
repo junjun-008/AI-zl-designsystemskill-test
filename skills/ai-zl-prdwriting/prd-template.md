@@ -1,105 +1,105 @@
-# PRD Template
+# PRD 模板
 
-Use this as the default template unless the user requests a different format.
+除非用户要求其他格式，否则使用此模板。
 
-## 1. Background
+## 1. 背景
 
-- current product context
-- what triggered this request
-- why now
+- 当前产品上下文
+- 触发本次需求的原因
+- 为什么现在做
 
-## 2. Goal
+## 2. 目标
 
-- the business or user outcome this requirement is intended to achieve
-- write in one or two sentences only
+- 需求希望实现的业务或用户结果
+- 只用一到两句话表达
 
-## 3. Problem Statement
+## 3. 问题定义
 
-- what is currently missing, broken, unclear, or inefficient
-- describe the current gap, not the future solution
+- 当前缺少、损坏、不清楚或低效的地方
+- 描述当前缺口，不要直接写未来方案
 
-## 4. Target Users
+## 4. 目标用户
 
-- primary user group
-- optional secondary user group
-- note if this is for all users or a subset
+- 主要用户群
+- 可选的次要用户群
+- 说明是面向全部用户还是部分用户
 
-## 5. User Scenario
+## 5. 用户场景
 
-Describe the real usage context:
+描述真实使用上下文：
 
-- when the user enters
-- what the user wants to do
-- what the user expects to happen
+- 用户何时进入
+- 用户想做什么
+- 用户期望发生什么
 
-## 6. Scope
+## 6. 范围
 
-### In Scope
+### 范围内
 
-- itemized requirement blocks
+- 按条列出需求块
 
-### Out Of Scope
+### 范围外
 
-- explicitly excluded content
+- 明确排除的内容
 
-## 7. Functional Requirements
+## 7. 功能需求
 
-Write by requirement block.
+按需求块编写。
 
-### Requirement Block Name
+### 需求块名称
 
-- user action
-- system response
-- displayed content
-- validation or state handling
+- 用户操作
+- 系统响应
+- 展示内容
+- 校验或状态处理
 
-## 8. Interaction Or Page Notes
+## 8. 交互或页面说明
 
-Use when the requirement affects a page, flow, or UX pattern.
+当需求影响页面、流程或交互模式时使用。
 
-Include only what is necessary:
+只写必要内容：
 
-- page objective
-- page entry
-- page exit
-- required modules
-- critical states
+- 页面目标
+- 页面进入
+- 页面退出
+- 必需模块
+- 关键状态
 
-## 9. Edge Cases
+## 9. 边界场景
 
-List non-happy-path situations:
+列出非正常成功路径的情况：
 
-- empty state
-- invalid input
-- unavailable data
-- permission or account limits
-- repeated operations
+- 空状态
+- 无效输入
+- 数据不可用
+- 权限或账户限制
+- 重复操作
 
-## 10. Acceptance Criteria
+## 10. 验收标准
 
-Write as testable bullets.
+用可测试的条目编写。
 
-Example style:
+示例句式：
 
-- Given `X`, when the user does `Y`, the system shows `Z`
-- After the user completes `A`, the system must `B`
+- 给定 `X`，当用户执行 `Y` 时，系统展示 `Z`
+- 用户完成 `A` 后，系统必须执行 `B`
 
-## 11. Out Of Scope
+## 11. 范围外
 
-Repeat if needed to protect the boundary. This section is mandatory when the request is likely to expand.
+必要时重复本节，用于保护需求边界。当需求很容易继续扩展时，本节必须保留。
 
-## 12. Risks And Open Questions
+## 12. 风险和待确认问题
 
-- unresolved dependency
-- unclear policy
-- pending metric decision
-- pending design decision
+- 未解决的依赖
+- 不清晰的政策
+- 待确定的指标
+- 待确定的设计决策
 
-## 13. Suggested Next Step
+## 13. 建议的下一步
 
-Optional. Use only when helpful:
+可选，仅在有帮助时使用：
 
-- design output
-- technical assessment
-- metric definition
-- policy confirmation
+- 设计输出
+- 技术评估
+- 指标定义
+- 政策确认

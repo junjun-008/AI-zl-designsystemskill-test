@@ -1,7 +1,7 @@
 ---
 name: stock-trading-prototype-design-system
 version: 0.1.1
-description: Use this Skill when a product manager or designer needs a mobile HTML prototype for the stock trading app: existing page modifications, feature adjustments, added modules, AI trading pages, market/home pages, detail/event pages, or reviewable interactive prototypes that must match the current App style. Do not use it for PRD writing, marketing copy, posters, generic web pages, backend work, data analysis, or final pixel-perfect design delivery.
+description: 当产品经理或设计师需要为股票交易 App 生成移动端 HTML 原型时使用本 Skill，适用于已有页面修改、功能调整、新增模块、AI 交易页面、行情首页、详情/事件页面和需要评审的可交互原型。不要用于 PRD 写作、营销文案、海报、通用网页、后端工作、数据分析或最终像素级精修交付。
 ---
 
 # 股票交易 App 原型设计系统 Skill

@@ -1,37 +1,37 @@
-# Review Checklist
+# 审核清单
 
-Use this checklist before delivering a PRD.
+交付 PRD 前使用此清单。
 
-## Structure
+## 结构
 
-- Does the document have a clear goal?
-- Does it separate background from solution?
-- Does it include scope and out-of-scope?
-- Does it include acceptance criteria?
-- Does it include risks or open questions?
+- 文档是否有清晰目标？
+- 是否将背景与方案分开？
+- 是否包含范围内和范围外？
+- 是否包含验收标准？
+- 是否包含风险或待确认问题？
 
-## Clarity
+## 清晰度
 
-- Can a designer understand what to design?
-- Can an engineer understand what to build?
-- Can QA understand what to verify?
-- Are vague words replaced with concrete requirements?
+- 设计师是否能理解要设计什么？
+- 开发人员是否能理解要实现什么？
+- QA 是否能理解要验证什么？
+- 是否将模糊词替换为具体需求？
 
-## Scope
+## 范围
 
-- Is the main user task defined?
-- Is the requirement bounded?
-- Are optional items separated from mandatory items?
-- Are non-goals explicit?
+- 是否定义了主要用户任务？
+- 需求是否有边界？
+- 可选项和必选项是否分开？
+- 非目标是否明确？
 
-## Execution
+## 执行
 
-- Are interactions or page states described when needed?
-- Are edge cases covered?
-- Are dependencies or assumptions called out?
+- 需要时是否描述了交互或页面状态？
+- 是否覆盖边界场景？
+- 是否指出依赖或假设？
 
-## Quality
+## 质量
 
-- Could someone misread this and build the wrong thing?
-- Is there any hidden ambiguity left in the requirement?
-- Is the PRD short enough to scan but complete enough to execute?
+- 是否可能被误读并做出错误实现？
+- 需求中是否还藏有歧义？
+- PRD 是否足够短，便于扫描，同时完整到可以执行？

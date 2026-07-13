@@ -1,69 +1,69 @@
-# Glossary
+# 术语表
 
-## Core Terms
+## 核心术语
 
 ### PRD
 
-Product Requirements Document. A document that defines what problem is being solved, what is in scope, what behavior is required, and how success is validated.
+Product Requirements Document，产品需求文档。用于定义要解决的问题、需求范围、必需行为和验证成功方式的文档。
 
-### Scope
+### 范围（Scope）
 
-The content that this requirement explicitly covers.
+本需求明确覆盖的内容。
 
-### Out Of Scope
+### 范围外（Out Of Scope）
 
-The content that this requirement explicitly does not cover. This protects against scope creep.
+本需求明确不覆盖的内容，用于防止范围不断扩大。
 
-### User Scenario
+### 用户场景（User Scenario）
 
-The real usage context in which the user tries to complete a task.
+用户尝试完成任务时的真实使用上下文。
 
-### User Story
+### 用户故事（User Story）
 
-A concise statement of user intent. Example:
+简洁描述用户意图的句子。例如：
 
-- as a retail investor, I want to top up buying power quickly so that I can trade without leaving the app
+- 作为普通投资者，我希望快速补充可用资金，以便不用离开 App 就能交易
 
-### Acceptance Criteria
+### 验收标准（Acceptance Criteria）
 
-Observable rules used to verify whether the requirement is implemented correctly.
+用于验证需求是否正确实现的可观察规则。
 
-### Edge Case
+### 边界场景（Edge Case）
 
-A non-happy-path situation that still needs defined behavior.
+不是正常成功路径、但仍需要定义处理方式的情况。
 
-### Open Question
+### 待确认问题（Open Question）
 
-An unresolved point that affects design, engineering, policy, or release decisions.
+会影响设计、开发、政策或发布决策，但尚未解决的问题。
 
-## Product Collaboration Terms
+## 产品协作术语
 
-### Page Objective
+### 页面目标（Page Objective）
 
-The single main task that a page exists to support.
+页面存在的唯一主要任务。
 
-### Primary CTA
+### 主要 CTA（Primary CTA）
 
-The main action on a page or in a flow step.
+页面或流程步骤中的主要操作。
 
-### Module
+### 模块（Module）
 
-A visible functional block inside a page, such as a balance summary, stock list, or payment method list.
+页面内可见的功能区块，例如余额摘要、股票列表或支付方式列表。
 
-### State
+### 状态（State）
 
-The condition of a page or component, such as default, loading, empty, error, disabled, or selected.
+页面或组件当前所处的条件，例如默认、加载、空、错误、禁用或选中。
 
-## Writing Warnings
+## 写作提醒
 
-### Vague Requirement
+### 模糊需求
 
-A sentence that sounds reasonable but cannot be built or tested. Example:
+听起来合理，但无法直接开发或测试的句子。例如：
 
-- improve experience
+- 改善体验
 
-### Executable Requirement
+### 可执行需求
 
-A sentence that design, engineering, and QA can act on without guessing. Example:
+设计、开发和 QA 无需猜测即可执行的句子。例如：
 
-- when the entered amount is below the minimum threshold, the primary CTA remains disabled
+- 当输入金额低于最低门槛时，主要 CTA 保持禁用

@@ -1,34 +1,34 @@
-# Market Discovery Shell
+# 行情发现页骨架
 
-## Use For
+## 适用场景
 
 - `Trending`
-- category-driven market exploration
-- dense scanning pages with multiple data groups
+- 按分类浏览行情
+- 包含多个数据分组的密集扫描页面
 
-## Structure
+## 结构
 
-1. top app bar
-2. short category or tab control
-3. compact trend cards or highlights
-4. filter header
-5. dense stock list
-6. bottom navigation
+1. 顶部 App Bar
+2. 短分类或 Tab 控件
+3. 紧凑趋势卡片或重点摘要
+4. 筛选标题区
+5. 密集股票列表
+6. 底部导航
 
-## Layout Rules
+## 布局规则
 
-- emphasize scan rhythm over decorative layout
-- keep cards compact
-- keep list rows consistent
-- keep filters short and one-line where possible
+- 优先保证扫描节奏，不追求装饰性布局。
+- 卡片保持紧凑。
+- 列表行保持一致。
+- 筛选项尽量短，并尽可能保持单行。
 
-## Content Rules
+## 内容规则
 
-- use tabs for market groups, not for long sentences
-- trend cards should be short, logo-first, and numeric
-- list rows should always preserve ticker, company, price, and change
+- Tab 用于行情分组，不用于长句子。
+- 趋势卡片要短，先展示 Logo，再展示数字。
+- 列表行必须保留 ticker、公司名、价格和涨跌。
 
-## Typical Components
+## 常用组件
 
 - `Top App Bar`
 - `Segment Tab`

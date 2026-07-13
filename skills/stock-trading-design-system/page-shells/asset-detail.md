@@ -1,32 +1,32 @@
-# Asset Detail Shell
+# 资产详情页骨架
 
-## Use For
+## 适用场景
 
 - `Detail Saham`
-- single-stock deep dive
-- quote detail and decision support pages
+- 单只股票深度查看
+- 行情详情和决策辅助页面
 
-## Structure
+## 结构
 
-1. top app bar
-2. headline quote block
-3. change or chart block
-4. key stats block
-5. related action block
+1. 顶部 App Bar
+2. 核心行情区
+3. 涨跌或图表区
+4. 关键指标区
+5. 相关操作区
 
-## Layout Rules
+## 布局规则
 
-- make the headline quote the first visual anchor
-- use supporting metrics to reduce ambiguity before action
-- keep secondary lists below the core decision area
+- 把核心行情作为第一个视觉焦点。
+- 操作前先用支持指标减少信息歧义。
+- 次级列表放在核心决策区之后。
 
-## Content Rules
+## 内容规则
 
-- ticker and company context must be immediate
-- price and change must read as one unit
-- supporting stats must stay compact and comparable
+- 立即展示 ticker 和公司上下文。
+- 价格和涨跌应作为一个信息单元阅读。
+- 支持指标保持紧凑并便于比较。
 
-## Typical Components
+## 常用组件
 
 - `Top App Bar`
 - `Key Stat Row`

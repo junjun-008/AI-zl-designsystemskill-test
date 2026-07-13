@@ -1,33 +1,33 @@
-# Review Checklist
+# 审查清单
 
-Use this when reviewing new Figma output, PM prototype requests, or implementation prompts.
+审查新的 Figma 输出、产品经理原型需求或实现提示词时使用。
 
-## Foundations
+## 基础规范
 
-- Does the screen stay on the approved `375px` mobile grid?
-- Are margins and content widths aligned with the current system?
-- Are radius and stroke values from the existing token scale?
+- 页面是否保持批准的 `375px` 移动端网格？
+- 边距和内容宽度是否符合当前系统？
+- 圆角和描边是否来自现有 token 尺度？
 
-## Components
+## 组件
 
-- Are buttons, tabs, navigation, stock rows, and payment controls real components?
-- Are all required states present where needed?
-- Are icon and logo slots still local component instances?
+- Button、Tab、导航、股票行和支付控件是否是真实组件？
+- 需要的状态是否都已提供？
+- 图标和 Logo 插槽是否仍是本地组件实例？
 
-## Semantics
+## 语义
 
-- Is green used only for positive, selected, success, or key active states?
-- Is red used only for decline, error, or risk?
-- Is typography named and used by role rather than ad hoc labels?
+- 绿色是否只用于正向、选中、成功或关键激活状态？
+- 红色是否只用于下跌、错误或风险？
+- 字体是否按角色命名和使用，而不是使用临时标签？
 
-## Page Logic
+## 页面逻辑
 
-- Does the page match one of the approved shells?
-- Is the primary task obvious in the first viewport?
-- Is there only one primary CTA per task section?
+- 页面是否符合某一个已批准的骨架？
+- 首屏是否能看出主要任务？
+- 每个任务区是否只有一个主要 CTA？
 
-## Collaboration
+## 协作
 
-- Can PM, design, and engineering read the output without guessing terminology?
-- Are the component property names still stable?
-- If something changed, was `CHANGELOG.md` updated?
+- 产品经理、设计师和开发人员是否无需猜测术语即可阅读？
+- 组件属性名是否仍然稳定？
+- 如果发生变化，是否已更新 `CHANGELOG.md`？

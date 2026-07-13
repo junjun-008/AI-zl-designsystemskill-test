@@ -1,20 +1,20 @@
 {
   "version": "0.1.0",
-  "purpose": "Semantic icon and logo usage index for the stock trading design system. This file records which icon meaning should be used in each product context; it does not replace final Figma icon assets.",
-  "languageNote": "zhName and zhMeaning are included so PMs and designers can review icon semantics without relying on English only.",
+  "purpose": "股票交易设计系统的图标和 Logo 语义使用索引。本文件记录不同产品场景应使用的图标含义，不替代最终 Figma 图标资源。",
+  "languageNote": "保留 zhName 和 zhMeaning，方便产品经理和设计师不依赖纯英文即可审核图标语义。",
   "sourcePriority": [
-    "Use the exact icon or logo instance from the current Figma page when available.",
-    "Use an existing local icon or logo component listed in tokens.json.",
-    "Use the approved semantic fallback in this file and mark it as pending production icon replacement when needed."
+    "如果当前 Figma 页面有对应资源，使用完全一致的图标或 Logo 实例。",
+    "使用 tokens.json 中列出的现有本地图标或 Logo 组件。",
+    "必要时使用本文件批准的语义回退方案，并标记为待替换的生产图标。"
   ],
   "globalRules": [
-    "Do not use random decorative icons for product functions.",
-    "Do not replace stock logos with blank circles or unrelated symbols.",
-    "Do not use emoji as product icons.",
-    "Keep icon-only actions at a minimum 40px touch target.",
-    "Use 16px icons for dense metadata, 20px icons for toolbar actions, and 24px icons for primary navigation or standalone icon buttons.",
-    "When an icon represents a financial movement, positive uses green, negative uses red, and neutral uses muted text or icon color.",
-    "If the real Figma icon is unavailable, use one consistent fallback style within the same prototype or page."
+    "不要为产品功能使用随机装饰图标。",
+    "不要用空白圆形或无关符号替代股票 Logo。",
+    "不要使用 emoji 作为产品图标。",
+    "纯图标操作的最小触控目标保持为 40px。",
+    "密集元数据使用 16px 图标，工具栏操作使用 20px 图标，主导航或独立 Icon Button 使用 24px 图标。",
+    "当图标表达金融变化时，正向使用绿色，负向使用红色，中性使用弱化文字或图标颜色。",
+    "真实 Figma 图标不可用时，在同一个原型或页面内使用一套一致的回退样式。"
   ],
   "sizeTokens": {
     "sm": "16px",
@@ -26,37 +26,37 @@
     {
       "id": "navigation",
       "zhName": "导航",
-      "description": "Top app bar, bottom navigation, page switching and back navigation."
+      "description": "顶部 App Bar、底部导航、页面切换和返回导航。"
     },
     {
       "id": "actions",
       "zhName": "通用操作",
-      "description": "Add, settings, search, copy, filter and common utility actions."
+      "description": "添加、设置、搜索、复制、筛选和常用工具操作。"
     },
     {
       "id": "watchlist",
       "zhName": "自选",
-      "description": "Watchlist grouping, sorting, row tools and add-to-watchlist actions."
+      "description": "自选分组、排序、列表工具和加自选操作。"
     },
     {
       "id": "portfolio",
       "zhName": "持仓",
-      "description": "Portfolio, position, wallet, buying power and account-state actions."
+      "description": "投资组合、持仓、钱包、可用资金和账户状态操作。"
     },
     {
       "id": "monitoring",
       "zhName": "盯盘",
-      "description": "Watch alerts, monitoring rules, triggers, reminders and rule states."
+      "description": "盯盘提醒、盯盘规则、触发器、提醒和规则状态。"
     },
     {
       "id": "market",
       "zhName": "行情",
-      "description": "Market movement, trend, quote list and stock market metadata."
+      "description": "市场变化、趋势、行情列表和股票市场元数据。"
     },
     {
       "id": "logos",
       "zhName": "股票与机构标识",
-      "description": "Stock logos, bank logos and market-specific logo slots."
+      "description": "股票 Logo、银行 Logo 和特定市场的 Logo 插槽。"
     }
   ],
   "icons": [

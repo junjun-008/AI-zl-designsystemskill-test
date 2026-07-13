@@ -1,44 +1,44 @@
-# Glossary
+# 术语表
 
-## Core Terms
+## 核心术语
 
-### Design System
+### 设计系统（Design System）
 
-The complete rule set for tokens, components, page structures, and documentation that keeps new output aligned with the existing Stock Trading app.
+用于约束 token、组件、页面结构和文档的一整套规则，确保新输出与现有 Stock Trading App 保持一致。
 
-### Token
+### 设计 token（Token）
 
-A named design value such as color, spacing, radius, stroke, size, typography, or effect. In this skill, `tokens.json` is the structured source.
+有名称的设计值，例如颜色、间距、圆角、描边、尺寸、字体或效果。本 Skill 使用 `tokens.json` 作为结构化来源。
 
-### Semantic Token
+### 语义 token（Semantic Token）
 
-A product-facing token name that explains usage, not raw value. Example: `color/text/positive`.
+描述使用场景而不是裸值的产品侧 token 名称，例如 `color/text/positive`。
 
-### Primitive Token
+### 原始 token（Primitive Token）
 
-A raw value bucket used to build semantics. Example: `primitive.color.neutral.900`.
+用于构建语义 token 的原始值分组，例如 `primitive.color.neutral.900`。
 
-### Component
+### 组件（Component）
 
-A reusable UI element with a stable API, such as `Primary Button` or `Stock List Item`.
+具有稳定 API 的可复用 UI 元素，例如 `Primary Button` 或 `Stock List Item`。
 
-### Pattern Component
+### 模式组件（Pattern Component）
 
-A larger reusable business block built from smaller components, such as `Watchlist` or `Payment Method List`.
+由多个小组件构成的较大业务区块，例如 `Watchlist` 或 `Payment Method List`。
 
-### Page Shell
+### 页面骨架（Page Shell）
 
-A reusable page composition skeleton that defines module order, spacing rhythm, and navigation structure.
+可复用的页面组合结构，定义模块顺序、间距节奏和导航结构。
 
-### Product Line Overlay
+### 业务线覆盖规则（Product Line Overlay）
 
-A business-domain-specific layer that adjusts copy, modules, and emphasis without inventing a new visual language.
+根据业务领域调整文案、模块和信息重点的规则层，但不能借此创造新的视觉语言。
 
-## Naming Terms
+## 命名术语
 
-### Role-Based Typography
+### 角色型字体命名（Role-Based Typography）
 
-The approved naming system for text styles:
+当前批准的文字样式命名：
 
 - `Display`
 - `Headline`
@@ -46,15 +46,15 @@ The approved naming system for text styles:
 - `Body`
 - `Label`
 
-Do not use `H1 / H2 / body1 / body2` as the working naming language in this project.
+项目工作命名中不要使用 `H1 / H2 / body1 / body2`。
 
-### Density
+### 密度（Density）
 
-The compactness mode of a component. Example: `Stock List Item` supports `Default` and `Compact`.
+组件内容的紧凑程度。例如 `Stock List Item` 支持 `Default` 和 `Compact`。
 
-### State
+### 状态（State）
 
-The interaction or semantic mode of a component, such as:
+组件的交互或语义模式，例如：
 
 - `Default`
 - `Pressed`
@@ -64,78 +64,78 @@ The interaction or semantic mode of a component, such as:
 - `Positive`
 - `Negative`
 
-### Instance Swap
+### 实例替换（Instance Swap）
 
-A Figma component property that allows a nested component such as an icon or stock logo to be swapped without detaching the parent component.
+Figma 组件属性，允许替换嵌套的图标或股票 Logo，而不拆离父组件。
 
-## Page Terms
+## 页面术语
 
 ### Aktivitas
 
-Portfolio and recent activity screen. Focuses on balance summary, quick actions, watchlist, and bottom navigation.
+投资组合和近期活动页面，重点是余额摘要、快捷操作、自选和底部导航。
 
 ### Trending
 
-Market discovery screen. Focuses on tabs, trend cards, market filters, and dense stock lists.
+行情发现页面，重点是 Tab、趋势卡片、市场筛选和密集股票列表。
 
 ### Detail Saham
 
-Stock detail screen. Focuses on price context, key stats, market movement, and action entry points.
+个股详情页面，重点是价格上下文、关键指标、市场变化和操作入口。
 
-### Top Up Flow
+### 充值流程（Top Up Flow）
 
-The three-step funding flow:
+三步资金流程：
 
-1. amount entry
-2. payment selection
-3. completion or confirmation
+1. 输入金额
+2. 选择支付方式
+3. 完成或确认
 
-## Visual Language Terms
+## 视觉语言术语
 
-### App Background
+### App 背景（App Background）
 
-The main dark canvas color, usually `color/bg/app`.
+主要的深色画布颜色，通常对应 `color/bg/app`。
 
-### Elevated Surface
+### 提升层（Elevated Surface）
 
-A denser or more separated surface layer, usually `color/bg/elevated`.
+层级更高或区隔更明显的表面，通常对应 `color/bg/elevated`。
 
-### Glass Surface
+### 玻璃表面（Glass Surface）
 
-A translucent card-like layer used in the current app language, usually `color/bg/surface`.
+当前 App 语言中的半透明卡片层，通常对应 `color/bg/surface`。
 
-### Section Card
+### Section 卡片（Section Card）
 
-A grouped module with:
+一个分组业务模块，通常具备：
 
-- `12px` radius
-- `20px` padding
-- `1px` border
-- dark translucent or solid surface fill
+- `12px` 圆角
+- `20px` 内边距
+- `1px` 边框
+- 深色半透明或实体表面填充
 
-### Positive Movement
+### 正向变化（Positive Movement）
 
-Price or data increase. Uses green semantic tokens.
+价格或数据上升，使用绿色语义 token。
 
-### Negative Movement
+### 负向变化（Negative Movement）
 
-Price or data decline. Uses red semantic tokens.
+价格或数据下降，使用红色语义 token。
 
-## Governance Terms
+## 治理术语
 
-### Source Of Truth
+### 权威来源（Source Of Truth）
 
-The file that should be trusted first for a specific category:
+某一类内容应该优先信任的文件：
 
-- structured values: `tokens.json`
-- CSS variables: `design-tokens.css`
-- component APIs: `tokens.json` plus `components.md`
-- page composition: `page-list.md` plus `page-shells/`
+- 结构化数值：`tokens.json`
+- CSS 变量：`design-tokens.css`
+- 组件 API：`tokens.json` 加 `components.md`
+- 页面组合：`page-list.md` 加 `page-shells/`
 
-### Detached Frame Debt
+### 拆离组件债务（Detached Frame Debt）
 
-The design debt created when a screen copies a component visually instead of reusing the actual component instance.
+页面只复制组件外观、没有复用真实组件实例时产生的设计债务。
 
-### Logo Integrity
+### Logo 完整性（Logo Integrity）
 
-The rule that stock list rows and market cards must preserve the correct local logo component instead of falling back to generic placeholders.
+股票列表行和市场卡片必须保留正确的本地 Logo 组件，不能回退到通用占位符。

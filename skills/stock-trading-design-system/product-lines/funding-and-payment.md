@@ -1,20 +1,20 @@
-# Funding And Payment
+# 充值和支付
 
-## Scope
+## 适用范围
 
-Use this overlay for:
+以下场景使用这套覆盖规则：
 
-- top up
-- payment setup
-- account funding confirmation
+- 充值
+- 设置支付方式
+- 账户资金确认
 
-## Emphasis
+## 信息重点
 
-- step clarity
-- selection visibility
-- error prevention
+- 步骤清晰
+- 选中状态可见
+- 防止操作错误
 
-## Preferred Modules
+## 推荐模块
 
 - `Payment Stepper`
 - `Amount Input`
@@ -23,14 +23,14 @@ Use this overlay for:
 - `Top Up Destination`
 - `Primary Button`
 
-## Copy Tone
+## 文案语气
 
-- explicit
-- confidence-building
-- low ambiguity
+- 明确
+- 帮助建立确定感
+- 减少歧义
 
-## Avoid
+## 避免
 
-- mixed CTA hierarchy
-- hidden selected states
-- decorative modules that interrupt the flow
+- 混乱的 CTA 层级
+- 隐藏选中状态
+- 打断流程的装饰性模块

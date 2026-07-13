@@ -1,34 +1,34 @@
-# Dashboard List Shell
+# 仪表盘列表页骨架
 
-## Use For
+## 适用场景
 
 - `Aktivitas`
-- compact portfolio overview
-- account home with market list modules
+- 紧凑型投资组合概览
+- 包含行情列表模块的账户首页
 
-## Structure
+## 结构
 
-1. top app bar
-2. primary summary block
-3. quick actions
-4. one or more list-based market modules
-5. bottom navigation
+1. 顶部 App Bar
+2. 主要摘要区
+3. 快捷操作
+4. 一个或多个列表型行情模块
+5. 底部导航
 
-## Layout Rules
+## 布局规则
 
-- screen width: `375px`
-- horizontal margin: `20px`
-- primary module gap: `16px`
-- use section cards for grouped blocks
-- keep quick actions visually secondary to the balance block
+- 屏幕宽度：`375px`
+- 左右边距：`20px`
+- 主要模块间距：`16px`
+- 分组区块使用 Section 卡片
+- 快捷操作的视觉优先级低于余额区
 
-## Content Rules
+## 内容规则
 
-- summary numbers should dominate the first viewport
-- list rows should stay dense and scannable
-- use text buttons for secondary navigation inside modules
+- 首屏优先突出摘要数字。
+- 列表行保持紧凑、便于扫描。
+- 模块内部的次级导航使用文字按钮。
 
-## Typical Components
+## 常用组件
 
 - `Top App Bar`
 - `Balance Summary`

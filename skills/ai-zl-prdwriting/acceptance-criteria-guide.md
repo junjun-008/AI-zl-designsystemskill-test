@@ -1,65 +1,65 @@
-# Acceptance Criteria Guide
+# 验收标准指南
 
-## Purpose
+## 目的
 
-Acceptance criteria exist to make a PRD executable and testable.
+验收标准用于让 PRD 可执行、可测试。
 
-If acceptance cannot be checked, the requirement is not yet clear enough.
+如果验收无法检查，说明需求还不够清楚。
 
-## Good Acceptance Criteria
+## 好的验收标准
 
-Good criteria are:
+好的标准应当：
 
-- observable
-- testable
-- bounded
-- specific
+- 可观察
+- 可测试
+- 有边界
+- 具体明确
 
-## Bad Examples
+## 不好的示例
 
-- the page feels smoother
-- the process is more convenient
-- users can easily understand it
+- 页面感觉更顺滑
+- 流程更方便
+- 用户可以轻松理解
 
-These are not testable.
+这些说法都无法直接测试。
 
-## Good Examples
+## 好的示例
 
-- when the user enters a valid amount and taps the primary CTA, the flow moves to the payment method step
-- when the amount is below the minimum threshold, the CTA remains disabled and an error hint is displayed
-- when no available payment method exists, the page shows an empty-state message and does not allow submission
+- 用户输入有效金额并点击主要 CTA 后，流程进入支付方式步骤
+- 当金额低于最低门槛时，CTA 保持禁用，并显示错误提示
+- 没有可用支付方式时，页面显示空状态文案，并且不允许提交
 
-## Writing Pattern
+## 写作句式
 
-Use one of these patterns:
+使用以下任一结构：
 
-### Pattern A
+### 结构 A
 
-- when the user does `X`, the system does `Y`
+- 当用户执行 `X` 时，系统执行 `Y`
 
-### Pattern B
+### 结构 B
 
-- given `X`, when `Y`, then `Z`
+- 给定 `X`，当发生 `Y` 时，结果为 `Z`
 
-### Pattern C
+### 结构 C
 
-- the page must display `X` under `Y` condition
+- 页面必须在 `Y` 条件下展示 `X`
 
-## Coverage Checklist
+## 覆盖检查
 
-Acceptance should usually cover:
+验收通常应覆盖：
 
-- happy path
-- invalid input
-- unavailable data
-- state transition
-- permission or eligibility rule
+- 正常路径
+- 无效输入
+- 数据不可用
+- 状态变化
+- 权限或资格规则
 
-## Page Requirement Reminder
+## 页面需求提醒
 
-For page-related PRDs, acceptance should include:
+页面型 PRD 的验收应包含：
 
-- page entry condition
-- required visible modules
-- CTA behavior
-- error or empty state handling
+- 页面进入条件
+- 必须可见的模块
+- CTA 行为
+- 错误或空状态处理

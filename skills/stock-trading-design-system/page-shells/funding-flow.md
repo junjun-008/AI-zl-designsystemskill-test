@@ -1,46 +1,46 @@
-# Funding Flow Shell
+# 资金流程页骨架
 
-## Use For
+## 适用场景
 
 - `Topup Buying Power 1`
 - `Topup Buying Power 2`
 - `Topup Buying Power 3`
-- other multi-step payment or funding flows
+- 其他多步骤支付或充值流程
 
-## Structure
+## 结构
 
-1. top app bar
-2. stepper
-3. current-step task block
-4. supporting selection or summary block
-5. primary CTA
+1. 顶部 App Bar
+2. 步骤器
+3. 当前步骤任务区
+4. 支持选择或摘要区
+5. 主要 CTA
 
-## Layout Rules
+## 布局规则
 
-- keep one decision focus per step
-- avoid mixing market discovery content into money movement flow
-- keep the CTA close to the completion decision
-- selected states must be explicit and visible
+- 每个步骤只保留一个决策重点。
+- 资金流程中不要混入行情发现内容。
+- CTA 要靠近完成决策的位置。
+- 选中状态必须明确且可见。
 
-## Step Mapping
+## 步骤映射
 
-### Step 1
+### 步骤 1
 
-- amount entry
-- amount presets
-- minimal helper copy
+- 输入金额
+- 预设金额
+- 最少的辅助文案
 
-### Step 2
+### 步骤 2
 
-- payment method selection
-- destination or account recap
+- 选择支付方式
+- 回顾目标账户或收款位置
 
-### Step 3
+### 步骤 3
 
-- confirmation summary
-- final action or completion state
+- 确认摘要
+- 最终操作或完成状态
 
-## Typical Components
+## 常用组件
 
 - `Top App Bar`
 - `Payment Stepper`

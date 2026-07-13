@@ -1,83 +1,83 @@
-# Common Breakages
+# 常见问题案例
 
-This file records the recurring failure patterns already seen in this Figma file and the rule that prevents each one.
+本文件记录在当前 Figma 文件中反复出现的问题，以及对应的预防规则。
 
-## 1. Core Buttons Not Componentized
+## 1. 核心按钮没有组件化
 
-### Problem
+### 问题
 
-Visual button frames were used in screens without a complete reusable component model.
+页面使用了看起来像按钮的 Frame，但没有完整、可复用的组件模型。
 
-### Risk
+### 风险
 
-- inconsistent states
-- harder updates
-- multiple button styles drift apart
+- 状态不一致
+- 更新困难
+- 多套按钮样式逐渐分叉
 
-### Rule
+### 规则
 
-Buttons are always components with stable size, state, and icon properties.
+按钮必须是具有稳定尺寸、状态和图标属性的组件。
 
-## 2. Icon Instances Became Mismatched
+## 2. 图标实例不匹配
 
-### Problem
+### 问题
 
-Icons inside components were replaced or detached incorrectly, leading to wrong icons on page instances.
+组件中的图标被错误替换或拆离，导致页面实例出现错误图标。
 
-### Risk
+### 风险
 
-- navigation confusion
-- incorrect visual meaning
-- brittle screen maintenance
+- 导航含义混乱
+- 图形语义错误
+- 页面维护脆弱
 
-### Rule
+### 规则
 
-Use instance-swap icon slots. Do not paste ad hoc icons into component instances.
+使用实例替换图标插槽，不要把临时绘制的图标直接粘贴到组件实例中。
 
-## 3. Stock Logos Disappeared
+## 3. 股票 Logo 消失
 
-### Problem
+### 问题
 
-Stock list rows lost their stock-specific logos and fell back to generic shapes.
+股票列表行丢失了股票专属 Logo，回退成通用形状。
 
-### Risk
+### 风险
 
-- information loss
-- lower scanning efficiency
-- weaker product realism
+- 信息损失
+- 扫描效率下降
+- 产品真实感变弱
 
-### Rule
+### 规则
 
-Stock rows and market cards must preserve local logo components. Logo integrity is part of the component contract.
+股票行和市场卡片必须保留本地 Logo 组件。Logo 完整性属于组件契约的一部分。
 
-## 4. Handbook Sections Overflowed
+## 4. Handbook 区块溢出
 
-### Problem
+### 问题
 
-Documentation frames in `Design System / Handbook` overflowed their containers and became hard to read.
+`Design System / Handbook` 中的文档 Frame 溢出容器，导致内容难以阅读。
 
-### Risk
+### 风险
 
-- poor onboarding quality
-- documentation loses trust
-- readers cannot understand the system
+- 上手质量下降
+- 文档可信度降低
+- 读者无法理解系统
 
-### Rule
+### 规则
 
-Handbook content must be built with bounded panels, readable spacing, and visual-first explanation. Documentation pages are product assets too.
+Handbook 内容必须使用有边界的面板、可读的间距和以视觉解释为主的结构。文档页面同样是产品资产。
 
-## 5. Section Components Mixed Into The Wrong Page
+## 5. Section 组件放错页面
 
-### Problem
+### 问题
 
-Section-level patterns were placed directly into the main components page and made the library harder to scan.
+Section 级模式直接放进主组件页，导致组件库难以扫描。
 
-### Risk
+### 风险
 
-- unclear library hierarchy
-- weak discoverability
-- review friction
+- 组件层级不清晰
+- 查找困难
+- 审查成本增加
 
-### Rule
+### 规则
 
-Atomic components, section patterns, and examples stay on separate pages unless there is a clear reason to merge them.
+原子组件、Section 模式和示例应分别放置，除非有明确理由才合并。

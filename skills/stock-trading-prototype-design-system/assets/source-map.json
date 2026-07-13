@@ -10,11 +10,11 @@
     "readOnlyExtractionDate": "2026-07-09"
   },
   "authorityOrder": [
-    "Figma Page 1 real screens",
-    "Confirmed Color variables and Light/Dark mapping",
-    "Verified rebuilt components",
-    "User-confirmed review findings",
-    "Explicitly marked model assumptions"
+    "Figma Page 1 真实页面",
+    "已确认的 Color 变量和明暗色映射",
+    "已验证的重建组件",
+    "用户确认过的评审问题",
+    "明确标注的模型假设"
   ],
   "pageSources": {
     "marketHomeLight": ["0:14445", "0:15253", "0:15977"],
@@ -66,10 +66,9 @@
     "documentationNode": "Dark Token Mapping / 暗色变量映射表"
   },
   "knownLimitations": [
-    "Current Components page is not authoritative for prototype generation until individual components are verified.",
-    "Icon extraction is not yet reliable enough to define final icon rules.",
-    "Spacing and radius tokens are MVP approximations and need a later focused measurement pass.",
-    "HTML prototype output is the MVP target; Figma prototype output is deferred."
+    "当前 Components 页在逐个组件验证前，不作为原型生成的权威来源。",
+    "图标提取目前还不够稳定，不能据此定义最终图标规则。",
+    "间距和圆角 token 目前是 MVP 近似值，后续需要单独进行精确测量。",
+    "HTML 原型是 MVP 目标，Figma 原型输出后置。"
   ]
 }
-

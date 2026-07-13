@@ -11,11 +11,11 @@
       "id": "app-shell-mobile",
       "name": "移动端页面壳",
       "sourceFrameIds": ["0:14445", "0:18012", "0:24754", "0:25365"],
-      "anatomy": ["status/top area", "content canvas", "optional bottom navigation"],
+      "anatomy": ["状态栏/顶部区域", "内容画布", "可选的底部导航"],
       "rules": [
-        "Use 390px as the default prototype width.",
-        "Keep mobile-first vertical flow.",
-        "Do not use desktop dashboard layout for MVP outputs."
+        "默认原型宽度使用 390px。",
+        "保持移动端优先的纵向流程。",
+        "MVP 输出不要使用桌面仪表盘布局。"
       ]
     },
     {
@@ -23,11 +23,11 @@
       "name": "市场指数卡片",
       "sourceNodeIds": ["0:14512", "0:18079"],
       "sourceFrameIds": ["0:14445", "0:18012"],
-      "anatomy": ["index name", "index value", "change percentage", "rise/fall tone"],
+      "anatomy": ["指数名称", "指数值", "涨跌百分比", "上涨/下跌语气"],
       "rules": [
-        "Use finance rise/fall tokens for number and percentage.",
-        "Keep values dense and scannable.",
-        "Do not turn index cards into large marketing KPI cards."
+        "数字和百分比使用金融上涨/下跌 token。",
+        "保持数值密集且便于扫描。",
+        "不要把指数卡片做成大型营销 KPI 卡片。"
       ]
     },
     {
@@ -35,11 +35,11 @@
       "name": "实时简报卡片",
       "sourceNodeIds": ["0:14594", "0:18161"],
       "sourceFrameIds": ["0:14445", "0:18012"],
-      "anatomy": ["section title", "briefing rows", "time or source metadata", "optional more entry"],
+      "anatomy": ["区块标题", "简报行", "时间或来源元数据", "可选的更多入口"],
       "rules": [
-        "Use compact row rhythm.",
-        "Keep text hierarchy clear: title, body, metadata.",
-        "Do not use long article layout unless page pattern is detail-event."
+        "使用紧凑的列表节奏。",
+        "保持文字层级清晰：标题、正文、元数据。",
+        "除非页面模式是 detail-event，否则不要使用长文章布局。"
       ]
     },
     {
@@ -47,11 +47,11 @@
       "name": "快捷入口网格",
       "sourceNodeIds": ["0:14621", "0:18188"],
       "sourceFrameIds": ["0:14445", "0:18012"],
-      "anatomy": ["icon", "label", "grid row"],
+      "anatomy": ["图标", "标签", "网格行"],
       "rules": [
-        "Use only real app-like action labels.",
-        "Do not replace missing icons with random generic icons without marking the assumption.",
-        "Keep icon and label centered in each item."
+        "只使用真实 App 风格的操作标签。",
+        "缺少图标时不要直接用随机通用图标替代，必须标注假设。",
+        "每个入口中的图标和标签保持居中。"
       ]
     },
     {
@@ -59,11 +59,11 @@
       "name": "底部导航",
       "sourceNodeIds": ["0:15252", "0:18673"],
       "sourceFrameIds": ["0:14445", "0:18012"],
-      "anatomy": ["navigation rail", "tab icon", "tab label", "active state"],
+      "anatomy": ["导航栏", "Tab 图标", "Tab 标签", "激活状态"],
       "rules": [
-        "Do not invent a new navigation model for page modifications.",
-        "Use active text/icon tone for the current tab.",
-        "Keep bottom navigation fixed in interactive HTML prototypes when the page scrolls."
+        "修改已有页面时不要发明新的导航模型。",
+        "当前 Tab 使用激活态文字/图标颜色。",
+        "可交互 HTML 原型发生滚动时，底部导航保持固定。"
       ]
     },
     {
@@ -71,11 +71,11 @@
       "name": "指标行",
       "sourceNodeIds": ["0:14607", "0:18174", "0:18177"],
       "sourceFrameIds": ["0:14445", "0:18012"],
-      "anatomy": ["label", "value", "tone"],
+      "anatomy": ["标签", "数值", "语气"],
       "rules": [
-        "Use for compact label-value financial data.",
-        "Use finance tokens for directional values.",
-        "Do not over-expand into a full card unless the data needs explanation."
+        "用于紧凑的标签-数值型金融数据。",
+        "方向性数值使用金融 token。",
+        "除非数据确实需要解释，否则不要扩展成完整卡片。"
       ]
     },
     {
@@ -83,10 +83,10 @@
       "name": "进度条",
       "sourceNodeIds": ["0:14613", "0:18180"],
       "sourceFrameIds": ["0:14445", "0:18012"],
-      "anatomy": ["track", "fill", "optional label"],
+      "anatomy": ["轨道", "填充", "可选标签"],
       "rules": [
-        "Use semantic track and fill colors.",
-        "Progress should support rise/fall or neutral meaning depending on surrounding data."
+        "轨道和填充使用语义颜色。",
+        "进度条根据周边数据表达上涨、下跌或中性含义。"
       ]
     },
     {
@@ -94,10 +94,10 @@
       "name": "AI 交易员头部",
       "sourceNodeIds": ["0:25396"],
       "sourceFrameIds": ["0:25365", "0:24754"],
-      "anatomy": ["title", "description", "optional status/action"],
+      "anatomy": ["标题", "说明", "可选状态/操作"],
       "rules": [
-        "Keep AI trading context financial, not generic chatbot.",
-        "Use concise explanation text and expose the primary action clearly."
+        "保持 AI 交易的金融上下文，不要做成通用聊天机器人。",
+        "使用简洁的解释文字，并清楚展示主要操作。"
       ]
     },
     {
@@ -105,10 +105,10 @@
       "name": "股票推荐卡片",
       "sourceNodeIds": ["0:25441", "0:25448"],
       "sourceFrameIds": ["0:25365"],
-      "anatomy": ["strategy/source label", "stock name", "price", "performance", "status or tag"],
+      "anatomy": ["策略/来源标签", "股票名称", "价格", "表现", "状态或标签"],
       "rules": [
-        "Use real stock-data hierarchy: name, price, performance, status.",
-        "Do not use generic product card layout."
+        "使用真实股票数据层级：名称、价格、表现、状态。",
+        "不要使用通用产品卡片布局。"
       ]
     },
     {
@@ -116,23 +116,22 @@
       "name": "时间线事件行",
       "sourceNodeIds": ["0:25507"],
       "sourceFrameIds": ["0:25365", "0:24754"],
-      "anatomy": ["time/status marker", "event title", "event description", "optional action"],
+      "anatomy": ["时间/状态标记", "事件标题", "事件说明", "可选操作"],
       "rules": [
-        "Use for AI trading, event details, and market timeline explanation.",
-        "Rows should stay compact and scannable."
+        "用于 AI 交易、事件详情和行情时间线解释。",
+        "行内容保持紧凑且便于扫描。"
       ]
     },
     {
       "id": "risk-or-status-notice",
       "name": "风险/状态提示模块",
       "sourceFrameIds": ["0:14445", "0:24754", "0:25365"],
-      "anatomy": ["status tone", "short title", "supporting copy", "optional action"],
+      "anatomy": ["状态语气", "短标题", "辅助文案", "可选操作"],
       "rules": [
-        "Use for PM page-modification requests that add warnings, risk tips, or status updates.",
-        "Keep the notice visually integrated with existing card rhythm.",
-        "Do not use alert styles that feel like a web admin system."
+        "用于产品经理提出的已有页面修改需求，例如增加警告、风险提示或状态更新。",
+        "让提示模块融入现有卡片节奏。",
+        "不要使用像 Web 管理后台的告警样式。"
       ]
     }
   ]
 }
-

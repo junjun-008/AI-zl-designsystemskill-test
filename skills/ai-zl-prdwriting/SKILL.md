@@ -1,205 +1,165 @@
 ---
 name: ai-zl-prdwriting
-description: Use this AI-zl project skill when writing or reviewing PRDs, feature requirement docs, page requirement docs, product briefs, user stories, scope definitions, acceptance criteria, or PM handoff documents that need to be professional, structured, and execution-ready.
+description: 用于编写或审核 AI-zl 项目的 PRD、功能需求文档、页面需求文档、产品简报、用户故事、范围定义、验收标准和产品经理交接文档，并让文档专业、结构化、可执行。
 metadata:
   version: v1.0
   project: AI-zl
-  short-description: AI-zl project PRD writing skill
+  short-description: AI-zl 项目 PRD 写作 Skill
 ---
 
-# AI-zl PRD Writing Skill
+# AI-zl PRD 写作 Skill
 
-Use this skill when the user wants a professional PRD instead of an informal feature note.
+当用户需要专业 PRD，而不是非正式的功能记录时使用本 Skill。
 
-This skill is optimized for:
+本 Skill 适用于：
 
-- new feature PRDs
-- new page PRDs
-- flow change PRDs
-- requirement clarification
-- PM-to-design handoff
-- PM-to-engineering handoff
-- requirement review and completion
+- 新功能 PRD
+- 新页面 PRD
+- 流程调整 PRD
+- 需求澄清
+- 产品经理到设计的交接
+- 产品经理到开发的交接
+- 需求审核和补全
 
-## Output Standard
+## 触发词
 
-Every PRD produced with this skill should be:
+当请求包含以下意图时使用本 Skill：
 
-- clear enough for PM, design, and engineering to read without translation
-- concrete enough to execute
-- scoped enough to avoid uncontrolled interpretation
-- structured enough to review quickly
-
-## Trigger Phrases
-
-Use this skill when the request includes ideas like:
-
-- write a PRD
-- product requirements document
-- 需求文档
+- 写 PRD
 - 产品需求文档
 - 功能需求
 - 页面需求
 - 用户故事
 - 验收标准
 - 需求整理
-- 帮我把需求写专业一点
+- 把需求写得更专业
 
-## Read Order
+## 阅读顺序
 
-### Always Read
+### 每次都读取
 
 1. `SKILL.md`
 2. `prd-template.md`
 3. `review-checklist.md`
 
-### Read When Needed
+### 按需读取
 
-- terminology alignment: `GLOSSARY.md`
-- acceptance criteria writing: `acceptance-criteria-guide.md`
-- governance updates: `CHANGELOG.md`
+- 术语对齐：`GLOSSARY.md`
+- 验收标准写作：`acceptance-criteria-guide.md`
+- 治理变更：`CHANGELOG.md`
 
-### Joint Usage Rule
+## 联合使用规则
 
-If the requirement involves UI, Figma pages, screens, components, or prototypes, and the project also has `stock-trading-design-system`, use both skills together.
+如果需求涉及 UI、Figma 页面、页面、组件或原型，并且项目中同时存在 `stock-trading-design-system`，两个 Skill 一起使用：
 
-Use:
+- `ai-zl-prdwriting` 负责需求结构、范围和验收标准
+- `stock-trading-design-system` 负责页面规则、组件、token 和设计约束
 
-- `ai-zl-prdwriting` for requirement structure, scope, and acceptance
-- `stock-trading-design-system` for page rules, components, tokens, and design constraints
+## PRD 必备结构
 
-## Required PRD Structure
+除非用户明确要求简版，否则每份 PRD 都应包含：
 
-Unless the user explicitly asks for a shorter format, every PRD should include:
+1. 背景
+2. 目标
+3. 问题定义
+4. 目标用户
+5. 用户场景
+6. 范围
+7. 功能需求
+8. 交互或页面说明
+9. 边界场景
+10. 验收标准
+11. 非目标范围
+12. 风险和待确认问题
 
-1. Background
-2. Goal
-3. Problem Statement
-4. Target Users
-5. User Scenario
-6. Scope
-7. Functional Requirements
-8. Interaction Or Page Notes
-9. Edge Cases
-10. Acceptance Criteria
-11. Out Of Scope
-12. Risks And Open Questions
+## 强制规则
 
-## Hard Rules
+### 必须做到
 
-### Always
+1. 明确要解决的业务问题或用户问题。
+2. 区分范围内和范围外内容。
+3. 将客观事实与假设分开。
+4. 用设计和开发可以直接执行的方式写需求。
+5. 每个重要功能块都要有验收标准。
+6. 识别待确认问题，不要用模糊表述隐藏歧义。
+7. 明确目标用户或目标场景。
+8. 让主要用户任务清晰可见。
+9. 有现状上下文时，说明相对于当前产品的变化。
+10. 文字简短、直接、可测试。
 
-1. Always state what business or user problem is being solved.
-2. Always distinguish `in scope` from `out of scope`.
-3. Always separate objective facts from assumptions.
-4. Always write requirements in a way that design and engineering can act on.
-5. Always include acceptance criteria for every meaningful feature block.
-6. Always identify open questions instead of hiding ambiguity in vague wording.
-7. Always define the target user or target scenario.
-8. Always make the primary user task obvious.
-9. Always describe changes against the current product state when that context exists.
-10. Always keep wording short, direct, and testable.
+### 禁止做到
 
-### Never
+1. 不要只写背景和功能列表。
+2. 不要使用“优化体验”“改善交互”“做得更好”等没有具体变化定义的模糊说法。
+3. 需求陈述中不要混入设计猜想；如果是建议，必须明确标注。
+4. 页面级需求不能没有页面目标或验收标准。
+5. 不要把设计参考当成书面需求的替代品。
+6. 不要隐藏未解决的依赖；将其放入“风险和待确认问题”。
 
-1. Never write a PRD that is only background plus a list of features.
-2. Never use vague phrases like `optimize experience`, `improve interaction`, or `make it better` without defining what changes.
-3. Never mix requirement statements with design speculation unless marked as recommendation.
-4. Never leave page-level requirements without page goals or acceptance criteria.
-5. Never treat a design reference as a substitute for written requirements.
-6. Never hide unresolved dependencies; move them into `Risks And Open Questions`.
+## 写作方法
 
-## Writing Method
+### 第一步：整理请求
 
-### Step 1: Normalize The Request
+明确：
 
-Clarify:
+- 改什么
+- 为什么改
+- 谁会受到影响
+- 这是新功能、新页面还是已有页面优化
 
-- what is changing
-- why it matters
-- who is affected
-- whether this is a new feature, a new page, or an optimization
+### 第二步：定义范围
 
-### Step 2: Define Scope
+拆分为：
 
-Break the request into:
+- 必须做
+- 可选做
+- 明确排除
 
-- required
-- optional
-- explicitly excluded
+### 第三步：编写需求块
 
-### Step 3: Write Requirement Blocks
+每个需求块包含：
 
-Each block should contain:
+- 用户意图
+- 系统行为
+- 可见结果
+- 失败或异常处理
 
-- user intent
-- system behavior
-- visible output
-- failure or exception handling
+### 第四步：补充验收标准
 
-### Step 4: Add Acceptance
+使用可观察、可测试的语言。
 
-Use observable and testable language.
+不好的写法：
 
-Bad:
+- 用户体验顺畅
 
-- user experience is smooth
+好的写法：
 
-Good:
+- 用户提交有效金额后，应在同一流程内进入支付方式选择步骤
 
-- after the user submits a valid amount, the page advances to payment method selection within the same flow
+### 第五步：补充待确认问题
 
-### Step 5: Add Open Questions
+没有定义的内容不要假装确定，记录下来。
 
-If something is not defined, do not fake certainty. Record it.
+## 默认输出风格
 
-## Default Output Style
+- 使用简洁中文
+- 使用清晰的章节标题
+- 优先短段落和扁平列表
+- 避免营销语言
+- 避免大段叙事
 
-- use concise Chinese
-- use section headers
-- prefer short paragraphs and flat bullets
-- avoid marketing language
-- avoid long narrative prose
+## PRD 质量标准
 
-## PRD Quality Bar
+PRD 只有在以下内容都清楚时才算完整：
 
-A PRD is not complete unless:
+- 问题清楚
+- 主流程清楚
+- 边界清楚
+- 验收可测试
+- 未解决问题可见
 
-- the problem is clear
-- the main flow is clear
-- the boundaries are clear
-- acceptance is testable
-- unresolved issues are visible
+## 页面型需求额外包含
 
-## If The Request Is Page-Oriented
-
-Also include:
-
-- page objective
-- primary user task
-- required modules
-- entry and exit points
-- page states if relevant
-
-When the design-system skill is available, align module names to the real component and page system.
-
-## If The Request Is Optimization-Oriented
-
-Also include:
-
-- current issue
-- expected change
-- non-goals
-- measurable or observable difference after release
-
-## Final Self Check
-
-Before delivering the PRD, verify:
-
-- Is the goal explicit?
-- Is the problem statement concrete?
-- Is the scope bounded?
-- Can design act on it?
-- Can engineering implement it?
-- Can QA validate it?
-- Are open questions isolated instead of hidden?
+- 页面目标
+- 主要用户任务
+- 必需模块

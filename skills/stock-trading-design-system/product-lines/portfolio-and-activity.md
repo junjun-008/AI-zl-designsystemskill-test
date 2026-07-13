@@ -1,35 +1,35 @@
-# Portfolio And Activity
+# 投资组合和活动
 
-## Scope
+## 适用范围
 
-Use this overlay for:
+以下场景使用这套覆盖规则：
 
-- home portfolio pages
-- balance views
-- recent activity or account overview
+- 投资组合首页
+- 余额查看
+- 最近活动或账户概览
 
-## Emphasis
+## 信息重点
 
-- account value first
-- action clarity second
-- supporting market context third
+- 第一优先级是账户价值
+- 第二优先级是操作清晰度
+- 第三优先级是辅助行情上下文
 
-## Preferred Modules
+## 推荐模块
 
 - `Balance Summary`
 - `Quick Action Button`
 - `Watchlist`
-- compact recent activity summaries
+- 紧凑的近期活动摘要
 
-## Copy Tone
+## 文案语气
 
-- calm
-- direct
-- low-friction
-- not promotional
+- 平静
+- 直接
+- 低操作负担
+- 不带促销感
 
-## Avoid
+## 避免
 
-- market noise above the balance block
-- oversized badges or banner-like marketing content
-- unrelated discovery modules before core account actions
+- 在余额区前放太多行情噪声
+- 过大的徽章或横幅式营销内容
+- 在核心账户操作前放无关的发现模块

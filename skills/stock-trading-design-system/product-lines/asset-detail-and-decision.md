@@ -1,35 +1,35 @@
-# Asset Detail And Decision
+# 资产详情和决策辅助
 
-## Scope
+## 适用范围
 
-Use this overlay for:
+以下场景使用这套覆盖规则：
 
-- stock detail
-- decision-support pages
-- quote deep dives before buy or follow actions
+- 股票详情
+- 决策辅助页面
+- 买入或关注前的行情深度查看
 
-## Emphasis
+## 信息重点
 
-- price clarity
-- change context
-- supporting metrics
-- action confidence
+- 价格清晰度
+- 涨跌上下文
+- 支持指标
+- 操作信心
 
-## Preferred Modules
+## 推荐模块
 
-- price headline block
+- 价格标题区
 - `Key Stats`
-- compact supporting charts or deltas
-- action row
+- 紧凑的辅助图表或变化值
+- 操作行
 
-## Copy Tone
+## 文案语气
 
-- precise
-- factual
-- low-noise
+- 准确
+- 事实导向
+- 低噪声
 
-## Avoid
+## 避免
 
-- excessive explanation before the key quote
-- oversized decorative graphics
-- hiding important metrics below the fold without reason
+- 在核心行情前放过多解释
+- 过大的装饰性图形
+- 没有理由地把重要指标藏到首屏下方
