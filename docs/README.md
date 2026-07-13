@@ -14,6 +14,11 @@ Current files:
 
 - `feishu-prd-template.md`: generic Feishu-friendly PRD template
 
+### 项目 PRD
+
+- `prd-market-home.md`: 行情首页 MVP PRD，用于行情首页信息架构和原型还原度测试
+- `prd-watchlist-position-analysis-monitoring.md`: 自选页持仓分析与智能盯盘 PRD
+
 ### `my-page/`
 
 Working documents for the `我的 / Profile` page.
